@@ -5,17 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LS Companion</title>
 
+  <!-- Google Font for a softer, more friendly feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f6f0fb; /* soft light plum */
+      background: #f6f0fb;
       color: #2d1b3d;
-      text-align: center;
+    }
+
+    /* HEADER */
+    .header {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .header img {
+      width: 50px;
+    }
+
+    /* MAIN */
+    .main {
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      text-align: center;
       padding: 20px;
     }
 
@@ -24,59 +42,77 @@
     }
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 14px;
       font-weight: 600;
     }
 
     p {
       font-size: 18px;
       line-height: 1.6;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       color: #5b3c7a;
     }
 
+    /* BIG BUTTON */
     .button {
       display: inline-block;
-      padding: 16px 26px;
-      border-radius: 14px;
-      background: #e9d5ff;
+      padding: 18px 36px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #e9d5ff, #d8b4fe);
       color: #2d1b3d;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 18px;
       text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
     }
 
     .sub {
-      margin-top: 18px;
+      margin-top: 20px;
       font-size: 14px;
       color: #8b6aa8;
     }
+
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <!-- LOGO TOP LEFT -->
+  <div class="header">
+    <img src="logo.jpg" alt="LS Companion Logo">
+  </div>
 
-    <h1>LS Companion</h1>
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="container">
 
-    <p>
-      A simple way to track symptoms, treatment, and patterns with lichen sclerosus.<br><br>
-      No overwhelm. Just clarity over time.
-    </p>
+      <h1>LS Companion</h1>
 
-    <a 
-      href="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/viewform?usp=sf_link" 
-      target="_blank" 
-      class="button">
-      Join early access
-    </a>
+      <p>
+        A simple way to track symptoms, treatment, and patterns with lichen sclerosus.<br><br>
+        No overwhelm. Just clarity over time.
+      </p>
 
-    <div class="sub">
-      Looking for a few early testers 💛
+      <a 
+        href="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/viewform?usp=sf_link" 
+        target="_blank" 
+        class="button">
+        Join early access
+      </a>
+
+      <div class="sub">
+        Looking for a few early testers 💛
+      </div>
+
     </div>
-
   </div>
 
 </body>
