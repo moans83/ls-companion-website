@@ -18,6 +18,7 @@
       --accent-dark: #8f63b2;
       --button-text: #ffffff;
       --border: #e4dce8;
+      --input-bg: #ffffff;
     }
 
     * {
@@ -34,17 +35,16 @@
       flex-direction: column;
     }
 
-    /* CLEAN HEADER WITH LARGE LOGO */
     .header {
       padding: 20px 24px;
     }
 
     .header img {
-      width: 80px; /* bigger logo */
+      width: 80px;
       height: auto;
+      display: block;
     }
 
-    /* HERO */
     .hero {
       flex: 1;
       display: flex;
@@ -87,23 +87,52 @@
       margin: 0 auto;
     }
 
-    .body-copy {
-      max-width: 700px;
-      margin: 0 auto 34px;
-      font-size: clamp(18px, 2vw, 24px);
-      line-height: 1.7;
+    .signup-form {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .email-input {
+      flex: 1 1 320px;
+      min-width: 260px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--input-bg);
+      font-size: 18px;
+      color: var(--text);
+      outline: none;
+      box-shadow: 0 4px 14px rgba(143, 99, 178, 0.06);
+    }
+
+    .email-input::placeholder {
+      color: #9a8aa6;
+    }
+
+    .email-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(184, 130, 217, 0.15);
     }
 
     .cta {
-      display: inline-block;
+      border: none;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: var(--button-text);
-      text-decoration: none;
       font-weight: 700;
       font-size: 22px;
-      padding: 20px 42px;
+      padding: 20px 34px;
       border-radius: 18px;
       box-shadow: 0 10px 24px rgba(143, 99, 178, 0.22);
+      cursor: pointer;
+      min-width: 220px;
     }
 
     .cta-note {
@@ -134,9 +163,21 @@
         width: 60px;
       }
 
+      .logo-wrap img {
+        width: min(150px, 46vw);
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .email-input,
       .cta {
         width: 100%;
-        max-width: 340px;
+        min-width: 0;
+      }
+
+      .cta {
         font-size: 20px;
         padding: 18px 24px;
       }
@@ -146,12 +187,10 @@
 
 <body>
 
-  <!-- CLEAN HEADER -->
   <div class="header">
     <img src="logo.png" alt="LS Companion logo" />
   </div>
 
-  <!-- HERO -->
   <main class="hero">
     <div class="hero-inner">
 
@@ -165,13 +204,23 @@
         <img src="logo.png" alt="LS Companion logo" />
       </div>
 
-      <a
-        class="cta"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/viewform?usp=sf_link"
+      <form
+        class="signup-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse"
+        method="POST"
         target="_blank"
       >
-        Join Early Access
-      </a>
+        <div class="form-row">
+          <input
+            class="email-input"
+            type="email"
+            name="entry.340076253"
+            placeholder="Enter your email"
+            required
+          />
+          <button class="cta" type="submit">Join Early Access</button>
+        </div>
+      </form>
 
       <div class="cta-note">
         Mostly free. Looking for a few pilot testers.
