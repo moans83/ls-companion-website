@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -29,7 +29,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -62,18 +62,20 @@
 
     h1 {
       margin: 0 0 18px;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: clamp(44px, 8vw, 72px);
-      line-height: 0.98;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
     .subhead {
       margin: 0 auto 34px;
       max-width: 620px;
       color: var(--muted);
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 500;
       line-height: 1.45;
     }
 
@@ -98,7 +100,9 @@
       border-radius: 18px;
       border: 1px solid var(--border);
       background: var(--input-bg);
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 18px;
+      font-weight: 500;
       color: var(--text);
       outline: none;
       box-shadow: 0 4px 14px rgba(143, 99, 178, 0.06);
@@ -112,29 +116,33 @@
       border-color: #b882d9;
       box-shadow: 0 0 0 4px rgba(184, 130, 217, 0.15);
     }
-.cta {
-  border: 1px solid rgba(233, 213, 255, 0.2);
-  background: #1c1326; /* dark plum (your app button color) */
-  color: #e9d5ff; /* light lavender text */
-  font-weight: 700;
-  font-size: 22px;
-  padding: 20px 34px;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  min-width: 220px;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-}
 
-.cta:hover {
-  background: #2a1a38; /* slightly lighter hover */
-}
+    .cta {
+      border: 1px solid rgba(233, 213, 255, 0.2);
+      background: #1c1326;
+      color: #e9d5ff;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      padding: 20px 34px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      min-width: 220px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .cta:hover {
+      background: #2a1a38;
+    }
 
     .cta-note {
       margin-top: 16px;
       color: var(--muted);
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 16px;
+      font-weight: 500;
     }
 
     .footer {
@@ -145,7 +153,8 @@
     .footer a {
       color: #8f63b2;
       text-decoration: none;
-      font-weight: 500;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 600;
       margin: 0 16px;
     }
 
