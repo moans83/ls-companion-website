@@ -16,8 +16,6 @@
       --muted: #6f5b7d;
       --accent: #b882d9;
       --accent-dark: #8f63b2;
-      --pill-bg: #ebe4ee;
-      --pill-text: #6c4b84;
       --button-text: #ffffff;
       --border: #e4dce8;
     }
@@ -36,22 +34,23 @@
       flex-direction: column;
     }
 
-      .brand-pill {
-        font-size: 16px;
-        padding: 9px 14px;
-      }
+    /* CLEAN HEADER WITH LARGE LOGO */
+    .header {
+      padding: 20px 24px;
+    }
 
-      .brand-pill img {
-        width: 24px;
-        height: 24px;
-      }
+    .header img {
+      width: 80px; /* bigger logo */
+      height: auto;
+    }
 
+    /* HERO */
     .hero {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 56px 24px 36px;
+      padding: 40px 24px 36px;
       text-align: center;
     }
 
@@ -91,7 +90,6 @@
     .body-copy {
       max-width: 700px;
       margin: 0 auto 34px;
-      color: var(--text);
       font-size: clamp(18px, 2vw, 24px);
       line-height: 1.7;
     }
@@ -127,23 +125,13 @@
     }
 
     .footer a:hover,
-    .brand-pill:hover,
     .cta:hover {
       opacity: 0.92;
     }
 
     @media (max-width: 640px) {
-      .topbar {
-        padding: 14px 14px;
-      }
-
-
-      .hero {
-        padding-top: 40px;
-      }
-
-      .body-copy {
-        line-height: 1.55;
+      .header img {
+        width: 60px;
       }
 
       .cta {
@@ -155,17 +143,19 @@
     }
   </style>
 </head>
-<body>
-  <header class="topbar">
-    <a class="brand-pill" href="#">
-      <img src="logo.png" alt="LS Companion logo" />
-      <span></span>
-    </a>
-  </header>
 
+<body>
+
+  <!-- CLEAN HEADER -->
+  <div class="header">
+    <img src="logo.png" alt="LS Companion logo" />
+  </div>
+
+  <!-- HERO -->
   <main class="hero">
     <div class="hero-inner">
-      <h1>LS Companion App</h1>
+
+      <h1>LS Companion</h1>
 
       <p class="subhead">
         A calm, simple way to track symptoms, treatment, and patterns with lichen sclerosus.
@@ -175,14 +165,10 @@
         <img src="logo.png" alt="LS Companion logo" />
       </div>
 
-      <p class="body-copy">
-      </p>
-
       <a
         class="cta"
         href="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/viewform?usp=sf_link"
         target="_blank"
-        rel="noopener noreferrer"
       >
         Join Early Access
       </a>
@@ -190,6 +176,7 @@
       <div class="cta-note">
         Mostly free. Looking for a few pilot testers.
       </div>
+
     </div>
   </main>
 
@@ -197,5 +184,6 @@
     <a href="#">Privacy Policy</a>
     <a href="#">Terms of Use</a>
   </footer>
+
 </body>
 </html>
