@@ -14,9 +14,9 @@
       --bg: #f4eef5;
       --text: #2f2238;
       --muted: #6f5b7d;
-      --accent: #b882d9;
-      --accent-dark: #8f63b2;
-      --button-text: #ffffff;
+      --accent-dark: #1c1326;
+      --accent-dark-hover: #2a1a38;
+      --button-text: #e9d5ff;
       --border: #e4dce8;
       --input-bg: #ffffff;
     }
@@ -55,8 +55,9 @@
     }
 
     .hero-inner {
-      max-width: 760px;
       width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     h1 {
@@ -76,33 +77,23 @@
       line-height: 1.45;
     }
 
-    .logo-wrap {
-      margin: 0 auto 34px;
-    }
-
-    .logo-wrap img {
-      width: min(180px, 42vw);
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
     .signup-form {
+      width: 100%;
       max-width: 620px;
       margin: 0 auto;
     }
 
     .form-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 14px;
-      justify-content: center;
+      width: 100%;
       align-items: stretch;
-      flex-wrap: wrap;
     }
 
     .email-input {
-      flex: 1 1 320px;
-      min-width: 260px;
+      width: 100%;
+      min-width: 0;
       padding: 18px 20px;
       border-radius: 18px;
       border: 1px solid var(--border);
@@ -118,21 +109,28 @@
     }
 
     .email-input:focus {
-      border-color: var(--accent);
+      border-color: #b882d9;
       box-shadow: 0 0 0 4px rgba(184, 130, 217, 0.15);
     }
 
     .cta {
-      border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: 1px solid rgba(233, 213, 255, 0.2);
+      background: var(--accent-dark);
       color: var(--button-text);
       font-weight: 700;
       font-size: 22px;
       padding: 20px 34px;
       border-radius: 18px;
-      box-shadow: 0 10px 24px rgba(143, 99, 178, 0.22);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       min-width: 220px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .cta:hover {
+      background: var(--accent-dark-hover);
+      opacity: 1;
     }
 
     .cta-note {
@@ -147,37 +145,40 @@
     }
 
     .footer a {
-      color: var(--accent-dark);
+      color: #8f63b2;
       text-decoration: none;
       font-weight: 500;
       margin: 0 16px;
     }
 
-    .footer a:hover,
-    .cta:hover {
+    .footer a:hover {
       opacity: 0.92;
     }
 
     @media (max-width: 640px) {
-      .header img {
-        width: 60px;
+      .header {
+        padding: 16px 18px;
       }
 
-      .logo-wrap img {
-        width: min(150px, 46vw);
+      .header img {
+        width: 64px;
+      }
+
+      .hero {
+        padding: 28px 18px 28px;
+      }
+
+      .subhead {
+        margin-bottom: 28px;
       }
 
       .form-row {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
 
-      .email-input,
       .cta {
         width: 100%;
         min-width: 0;
-      }
-
-      .cta {
         font-size: 20px;
         padding: 18px 24px;
       }
@@ -187,18 +188,18 @@
 
 <body>
 
+  <div class="header">
+    <img src="logo.png" alt="LS Companion logo" />
+  </div>
+
   <main class="hero">
     <div class="hero-inner">
-    <div class="logo-wrap">
-        <img src="logo.png" alt="LS Companion logo" />
-      </div>
+
       <h1>LS Companion</h1>
 
       <p class="subhead">
         A calm, simple way to track symptoms, treatment, and patterns with lichen sclerosus.
       </p>
-
-  
 
       <form
         class="signup-form"
