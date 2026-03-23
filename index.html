@@ -2,118 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LS Companion</title>
 
-  <!-- Google Font for a softer, more friendly feel -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #f4eef5;
+      --text: #2f2238;
+      --muted: #6f5b7d;
+      --accent: #b882d9;
+      --accent-dark: #8f63b2;
+      --pill-bg: #ebe4ee;
+      --pill-text: #6c4b84;
+      --button-text: #ffffff;
+      --border: #e4dce8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f6f0fb;
-      color: #2d1b3d;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* HEADER */
-    .header {
-      position: absolute;
-      top: 20px;
-      left: 20px;
+    .topbar {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .header img {
-      width: 50px;
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--pill-bg);
+      text-decoration: none;
+      color: var(--pill-text);
+      font-weight: 700;
+      font-size: 18px;
     }
 
-    /* MAIN */
-    .main {
-      height: 100vh;
+    .brand-pill img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .hero {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 56px 24px 36px;
       text-align: center;
-      padding: 20px;
     }
 
-    .container {
-      max-width: 480px;
+    .hero-inner {
+      max-width: 760px;
+      width: 100%;
     }
 
     h1 {
+      margin: 0 0 18px;
       font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      margin-bottom: 14px;
+      font-size: clamp(44px, 8vw, 72px);
+      line-height: 0.98;
       font-weight: 600;
+      letter-spacing: -0.02em;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 35px;
-      color: #5b3c7a;
+    .subhead {
+      margin: 0 auto 34px;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(20px, 2.5vw, 28px);
+      line-height: 1.45;
     }
 
-    /* BIG BUTTON */
-    .button {
+    .logo-wrap {
+      margin: 0 auto 34px;
+    }
+
+    .logo-wrap img {
+      width: min(180px, 42vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .body-copy {
+      max-width: 700px;
+      margin: 0 auto 34px;
+      color: var(--text);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.7;
+    }
+
+    .cta {
       display: inline-block;
-      padding: 18px 36px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #e9d5ff, #d8b4fe);
-      color: #2d1b3d;
-      font-weight: 600;
-      font-size: 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--button-text);
       text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      font-weight: 700;
+      font-size: 22px;
+      padding: 20px 42px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(143, 99, 178, 0.22);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    .cta-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 16px;
     }
 
-    .sub {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #8b6aa8;
+    .footer {
+      padding: 20px 24px 30px;
+      text-align: center;
     }
 
+    .footer a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 16px;
+    }
+
+    .footer a:hover,
+    .brand-pill:hover,
+    .cta:hover {
+      opacity: 0.92;
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        padding: 14px 14px;
+      }
+
+      .brand-pill {
+        font-size: 16px;
+        padding: 9px 14px;
+      }
+
+      .brand-pill img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .body-copy {
+        line-height: 1.55;
+      }
+
+      .cta {
+        width: 100%;
+        max-width: 340px;
+        font-size: 20px;
+        padding: 18px 24px;
+      }
+    }
   </style>
 </head>
-
 <body>
+  <header class="topbar">
+    <a class="brand-pill" href="#">
+      <img src="logo.png" alt="LS Companion logo" />
+      <span>LS Companion</span>
+    </a>
+  </header>
 
-  <!-- LOGO TOP LEFT -->
-  <div class="header">
-    <img src="logo.jpg" alt="LS Companion Logo">
-  </div>
+  <main class="hero">
+    <div class="hero-inner">
+      <h1>Welcome to LS Companion</h1>
 
-  <!-- MAIN CONTENT -->
-  <div class="main">
-    <div class="container">
-
-      <h1>LS Companion</h1>
-
-      <p>
-        A simple way to track symptoms, treatment, and patterns with lichen sclerosus.<br><br>
-        No overwhelm. Just clarity over time.
+      <p class="subhead">
+        A calm, simple way to track symptoms, treatment, and patterns with lichen sclerosus.
       </p>
 
-      <a 
-        href="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/viewform?usp=sf_link" 
-        target="_blank" 
-        class="button">
-        Join early access
-      </a>
-
-      <div class="sub">
-        Looking for a few early testers 💛
+      <div class="logo-wrap">
+        <img src="logo.png" alt="LS Companion logo" />
       </div>
 
-    </div>
-  </div>
+      <p class="body-copy">
+        I’m building LS Companion to make day-to-day management feel less overwhelming.
+        I’m looking for a small group of early testers to tell me what’s helpful, what’s missing,
+        and whether something like this would actually make a difference.
+      </p>
 
+      <a
+        class="cta"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/viewform?usp=sf_link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Join Early Access
+      </a>
+
+      <div class="cta-note">
+        Mostly free. Looking for a few pilot testers.
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+  </footer>
 </body>
 </html>
