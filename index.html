@@ -3,36 +3,49 @@
 <head>
 <script src="https://cdn.amplitude.com/script/5563a87066774c27bb21d53c833ca3a7.js"></script>
 <script>
-  // Initialize Amplitude
+  window.submitted = false;
+
   window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
     autocapture: true,
     defaultTracking: true
   });
 
-  // Track page view
   window.amplitude.track('Landing Page Viewed');
 
-  // Track email field engagement
   document.addEventListener('DOMContentLoaded', function () {
     const emailInput = document.querySelector('.email-input');
+    const signupForm = document.querySelector('.signup-form');
+    const iframe = document.getElementById('hidden_iframe');
 
     if (emailInput) {
+      let focusedOnce = false;
       emailInput.addEventListener('focus', function () {
-        window.amplitude.track('Email Field Focused');
+        if (!focusedOnce) {
+          focusedOnce = true;
+          window.amplitude.track('Email Field Focused');
+        }
       });
     }
-  });
 
-  // Track form submission (conversion)
-  let submitted = false;
-
-  window.addEventListener('DOMContentLoaded', function () {
-    const iframe = document.getElementById('hidden_iframe');
+    if (signupForm) {
+      signupForm.addEventListener('submit', function () {
+        window.submitted = true;
+        window.amplitude.track('Early Access Submit Attempt');
+      });
+    }
 
     if (iframe) {
       iframe.addEventListener('load', function () {
-        if (submitted) {
+        if (window.submitted) {
           window.amplitude.track('Early Access Submitted');
+          window.submitted = false;
+
+          document.querySelector('.hero-form').innerHTML = `
+            <div class="thank-you-card">
+              <h2>Thank you 💛</h2>
+              <p>You’re on the early access list. I’ll let you know when the app is ready for testing.</p>
+            </div>
+          `;
         }
       });
     }
