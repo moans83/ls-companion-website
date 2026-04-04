@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="module">
-  import * as amplitude from 'https://cdn.jsdelivr.net/npm/@amplitude/analytics-browser@2/+esm';
-
-  amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
-    autocapture: true
+<script src="https://cdn.amplitude.com/script/5563a87066774c27bb21d53c833ca3a7.js"></script>
+<script>
+  // Initialize Amplitude
+  window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
+    autocapture: true,
+    defaultTracking: true
   });
 
-  amplitude.track('Landing Page Viewed');
+  // Track page view
+  window.amplitude.track('Landing Page Viewed');
+
+  // Track email field engagement
+  document.addEventListener('DOMContentLoaded', function () {
+    const emailInput = document.querySelector('.email-input');
+
+    if (emailInput) {
+      emailInput.addEventListener('focus', function () {
+        window.amplitude.track('Email Field Focused');
+      });
+    }
+  });
+
+  // Track form submission (conversion)
+  let submitted = false;
+
+  window.addEventListener('DOMContentLoaded', function () {
+    const iframe = document.getElementById('hidden_iframe');
+
+    if (iframe) {
+      iframe.addEventListener('load', function () {
+        if (submitted) {
+          window.amplitude.track('Early Access Submitted');
+        }
+      });
+    }
+  });
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
