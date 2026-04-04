@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script type="module">
+  import * as amplitude from 'https://cdn.jsdelivr.net/npm/@amplitude/analytics-browser@2/+esm';
+
+  amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
+    autocapture: true
+  });
+
+  amplitude.track('Landing Page Viewed');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LS Companion</title>
@@ -168,7 +177,7 @@
 
     .hero-image img {
       width: 100%;
-      max-width: 460px;
+      max-width: 320px;
       height: auto;
       display: block;
       filter: drop-shadow(0 26px 34px rgba(72, 42, 99, 0.10));
