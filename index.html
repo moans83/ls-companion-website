@@ -5,11 +5,33 @@
 <script>
   window.submitted = false;
 
+  // Init Amplitude
   window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
     autocapture: true,
     defaultTracking: true
   });
 
+  // 🌐 UTM Tracking (ADD THIS)
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('utm_source');
+  const medium = params.get('utm_medium');
+  const campaign = params.get('utm_campaign');
+
+  if (source || medium || campaign) {
+    window.amplitude.setUserProperties({
+      traffic_source: source || 'unknown',
+      traffic_medium: medium || 'unknown',
+      traffic_campaign: campaign || 'unknown'
+    });
+
+    window.amplitude.track('Traffic Source Detected', {
+      source: source,
+      medium: medium,
+      campaign: campaign
+    });
+  }
+
+  // Track page view
   window.amplitude.track('Landing Page Viewed');
 
   document.addEventListener('DOMContentLoaded', function () {
