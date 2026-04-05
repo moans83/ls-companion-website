@@ -12,24 +12,39 @@
   });
 
   // 🌐 UTM Tracking (ADD THIS)
-  const params = new URLSearchParams(window.location.search);
-  const source = params.get('utm_source');
-  const medium = params.get('utm_medium');
-  const campaign = params.get('utm_campaign');
+// 🌐 Capture UTM params OR fallback to stored values
+const params = new URLSearchParams(window.location.search);
 
-  if (source || medium || campaign) {
-    window.amplitude.setUserProperties({
-      traffic_source: source || 'unknown',
-      traffic_medium: medium || 'unknown',
-      traffic_campaign: campaign || 'unknown'
-    });
+let source = params.get('utm_source');
+let medium = params.get('utm_medium');
+let campaign = params.get('utm_campaign');
 
-    window.amplitude.track('Traffic Source Detected', {
-      source: source,
-      medium: medium,
-      campaign: campaign
-    });
-  }
+// If UTMs exist → store them
+if (source || medium || campaign) {
+  localStorage.setItem('utm_source', source);
+  localStorage.setItem('utm_medium', medium);
+  localStorage.setItem('utm_campaign', campaign);
+} else {
+  // Fallback to stored values (important for FB)
+  source = localStorage.getItem('utm_source');
+  medium = localStorage.getItem('utm_medium');
+  campaign = localStorage.getItem('utm_campaign');
+}
+
+// Set Amplitude properties
+if (source) {
+  window.amplitude.setUserProperties({
+    traffic_source: source,
+    traffic_medium: medium || 'unknown',
+    traffic_campaign: campaign || 'unknown'
+  });
+
+  window.amplitude.track('Traffic Source Detected', {
+    source: source,
+    medium: medium,
+    campaign: campaign
+  });
+}
 
   // Track page view
   window.amplitude.track('Landing Page Viewed');
