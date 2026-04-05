@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta http-equiv="refresh" content="0; url=https://lscompanion.com/?utm_source=reddit&utm_medium=post&utm_campaign=beta_launch" />
     <title>Redirecting...</title>
+
+    <script>
+      const target = "https://lscompanion.com/?utm_source=reddit&utm_medium=post&utm_campaign=beta_launch";
+
+      // Store UTMs BEFORE redirect (critical)
+      localStorage.setItem('utm_source', 'reddit');
+      localStorage.setItem('utm_medium', 'post');
+      localStorage.setItem('utm_campaign', 'beta_launch');
+
+      // Redirect
+      window.location.replace(target);
+    </script>
+
+    <!-- fallback -->
+    <meta http-equiv="refresh" content="1; url=https://lscompanion.com/?utm_source=reddit&utm_medium=post&utm_campaign=beta_launch" />
   </head>
+
   <body>
     <p>Redirecting...</p>
   </body>
