@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta http-equiv="refresh" content="0; url=https://lscompanion.com/?utm_source=facebook&utm_medium=group&utm_campaign=beta_launch" />
     <title>Redirecting...</title>
+
+    <script>
+      const target = "https://lscompanion.com/?utm_source=facebook&utm_medium=group&utm_campaign=beta_launch";
+
+      // Save UTMs BEFORE redirect (critical for FB)
+      localStorage.setItem('utm_source', 'facebook');
+      localStorage.setItem('utm_medium', 'group');
+      localStorage.setItem('utm_campaign', 'beta_launch');
+
+      // Redirect
+      window.location.replace(target);
+    </script>
+
+    <!-- fallback just in case -->
+    <meta http-equiv="refresh" content="1; url=https://lscompanion.com/?utm_source=facebook&utm_medium=group&utm_campaign=beta_launch" />
   </head>
+
   <body>
     <p>Redirecting...</p>
   </body>
