@@ -52,7 +52,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     const emailInput = document.querySelector('.email-input');
     const signupForm = document.querySelector('.signup-form');
-    const iframe = document.getElementById('hidden_iframe');
 
     if (emailInput) {
       let focusedOnce = false;
@@ -65,25 +64,36 @@
     }
 
     if (signupForm) {
-      signupForm.addEventListener('submit', function () {
+      signupForm.addEventListener('submit', function (e) {
+        const submitButton = signupForm.querySelector('.cta');
+        const emailField = signupForm.querySelector('.email-input');
+
+        if (window.submitted) {
+          e.preventDefault();
+          return;
+        }
+
         window.submitted = true;
         window.amplitude.track('Early Access Submit Attempt');
-      });
-    }
 
-    if (iframe) {
-      iframe.addEventListener('load', function () {
-        if (window.submitted) {
-          window.amplitude.track('Early Access Submitted');
-          window.submitted = false;
-
-          document.querySelector('.hero-form').innerHTML = 
-            <div class="thank-you-card">
-              <h2>Thank you 💛</h2>
-              <p>You’re on the early access list. I’ll let you know when the app is ready for testing.</p>
-            </div>
-          ;
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Submitting...';
+          submitButton.style.opacity = '0.7';
+          submitButton.style.cursor = 'not-allowed';
         }
+
+        if (emailField) {
+          emailField.readOnly = true;
+        }
+
+        // Show success immediately instead of waiting for iframe
+        document.querySelector('.hero-form').innerHTML = `
+          <div class="thank-you-card">
+            <h2>Thank you 💛</h2>
+            <p>You’re on the early access list. I’ll let you know when the app is ready. In the meantime, if you have questions you can reach me (Mona) at support@lscompanion.com.</p>
+          </div>
+        `;
       });
     }
   });
@@ -255,7 +265,7 @@
 
     .hero-image img {
       width: 75%;
-      max-width: 250;
+      max-width: 250px;
       height: auto;
       display: block;
       filter: drop-shadow(0 26px 34px rgba(72, 42, 99, 0.10));
@@ -390,7 +400,6 @@
           class="signup-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse"
           method="POST"
-          target="hidden_iframe"
         >
           <div class="form-row">
             <input
@@ -413,25 +422,9 @@
   </main>
 
   <footer class="footer">
-  <a href="/privacy.html">Privacy Policy</a>
-  <a href="/terms.html">Terms of Use</a>  </footer>
-
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-  <script>
-    let submitted = false;
-
-    document.getElementById('hidden_iframe').addEventListener('load', function () {
-      if (submitted) {
-        document.querySelector('.hero-form').innerHTML = 
-          <div class="thank-you-card">
-            <h2>Thank you 💛</h2>
-            <p>You’re on the early access list. I’ll let you know when the app is ready. In the meantime, if you have questions you can reach me (Mona) at support@lscompanion.com.</p>
-          </div>
-        ;
-      }
-    });
-  </script>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Use</a>
+  </footer>
 
 </body>
 </html>
