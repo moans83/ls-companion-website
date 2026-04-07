@@ -1,103 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.amplitude.com/script/5563a87066774c27bb21d53c833ca3a7.js"></script>
-<script>
-  window.submitted = false;
+  <script src="https://cdn.amplitude.com/script/5563a87066774c27bb21d53c833ca3a7.js"></script>
+  <script>
+    window.submitted = false;
 
-  // Init Amplitude
-  window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
-    autocapture: true,
-    defaultTracking: true
-  });
+    // Init Amplitude
+    window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
+      autocapture: true,
+      defaultTracking: true
+    });
 
-  // 🌐 UTM Tracking (robust version)
-  (function () {
-    const params = new URLSearchParams(window.location.search);
+    // UTM Tracking
+    (function () {
+      const params = new URLSearchParams(window.location.search);
 
-    let source = params.get('utm_source');
-    let medium = params.get('utm_medium');
-    let campaign = params.get('utm_campaign');
+      let source = params.get('utm_source');
+      let medium = params.get('utm_medium');
+      let campaign = params.get('utm_campaign');
 
-    // Store if present
-    if (source || medium || campaign) {
-      localStorage.setItem('utm_source', source);
-      localStorage.setItem('utm_medium', medium);
-      localStorage.setItem('utm_campaign', campaign);
-    } else {
-      // fallback (important for FB)
-      source = localStorage.getItem('utm_source');
-      medium = localStorage.getItem('utm_medium');
-      campaign = localStorage.getItem('utm_campaign');
-    }
+      if (source || medium || campaign) {
+        localStorage.setItem('utm_source', source);
+        localStorage.setItem('utm_medium', medium);
+        localStorage.setItem('utm_campaign', campaign);
+      } else {
+        source = localStorage.getItem('utm_source');
+        medium = localStorage.getItem('utm_medium');
+        campaign = localStorage.getItem('utm_campaign');
+      }
 
-    if (source) {
-      window.amplitude.setUserProperties({
-        traffic_source: source,
-        traffic_medium: medium || 'unknown',
-        traffic_campaign: campaign || 'unknown'
-      });
+      if (source) {
+        window.amplitude.setUserProperties({
+          traffic_source: source,
+          traffic_medium: medium || 'unknown',
+          traffic_campaign: campaign || 'unknown'
+        });
 
-      window.amplitude.track('Traffic Source Detected', {
-        source: source,
-        medium: medium,
-        campaign: campaign
-      });
-    }
-  })();
+        window.amplitude.track('Traffic Source Detected', {
+          source: source,
+          medium: medium,
+          campaign: campaign
+        });
+      }
+    })();
 
-  // Track page view AFTER setting properties
-  window.amplitude.track('Landing Page Viewed');
+    window.amplitude.track('Landing Page Viewed');
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const emailInput = document.querySelector('.email-input');
-    const signupForm = document.querySelector('.signup-form');
+    document.addEventListener('DOMContentLoaded', function () {
+      const emailInput = document.querySelector('.email-input');
+      const signupForm = document.getElementById('signup-form');
+      const heroForm = document.querySelector('.hero-form');
+      const submitButton = document.getElementById('submit-button');
 
-    if (emailInput) {
-      let focusedOnce = false;
-      emailInput.addEventListener('focus', function () {
-        if (!focusedOnce) {
-          focusedOnce = true;
-          window.amplitude.track('Email Field Focused');
-        }
-      });
-    }
+      if (emailInput) {
+        let focusedOnce = false;
+        emailInput.addEventListener('focus', function () {
+          if (!focusedOnce) {
+            focusedOnce = true;
+            window.amplitude.track('Email Field Focused');
+          }
+        });
+      }
 
-    if (signupForm) {
-      signupForm.addEventListener('submit', function (e) {
-        const submitButton = signupForm.querySelector('.cta');
-        const emailField = signupForm.querySelector('.email-input');
+      if (!signupForm || !heroForm || !submitButton || !emailInput) return;
 
-        if (window.submitted) {
-          e.preventDefault();
-          return;
-        }
+      signupForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        if (window.submitted) return;
+
+        const email = emailInput.value.trim();
+        if (!email) return;
 
         window.submitted = true;
         window.amplitude.track('Early Access Submit Attempt');
 
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = 'Submitting...';
-          submitButton.style.opacity = '0.7';
-          submitButton.style.cursor = 'not-allowed';
-        }
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+        submitButton.style.opacity = '0.7';
+        submitButton.style.cursor = 'not-allowed';
+        emailInput.readOnly = true;
 
-        if (emailField) {
-          emailField.readOnly = true;
-        }
+        const formData = new FormData();
+        formData.append('entry.340076253', email);
 
-        // Show success immediately instead of waiting for iframe
-        document.querySelector('.hero-form').innerHTML = `
-          <div class="thank-you-card">
-            <h2>Thank you 💛</h2>
-            <p>You’re on the early access list. I’ll let you know when the app is ready. In the meantime, if you have questions you can reach me (Mona) at support@lscompanion.com.</p>
-          </div>
-        `;
+        try {
+          await fetch('https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+          });
+
+          window.amplitude.track('Early Access Submitted');
+
+          heroForm.innerHTML = `
+            <div class="thank-you-card">
+              <h2>Thank you 💛</h2>
+              <p>You’re on the early access list. I’ll let you know when the app is ready. In the meantime, if you have questions you can reach me (Mona) at support@lscompanion.com.</p>
+            </div>
+          `;
+        } catch (error) {
+          window.submitted = false;
+          submitButton.disabled = false;
+          submitButton.textContent = 'Join Early Access';
+          submitButton.style.opacity = '1';
+          submitButton.style.cursor = 'pointer';
+          emailInput.readOnly = false;
+          alert('Something went wrong. Please try again.');
+        }
       });
-    }
-  });
-</script>
+    });
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LS Companion</title>
@@ -396,20 +410,17 @@
       </div>
 
       <div class="hero-form">
-        <form
-          class="signup-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse"
-          method="POST"
-        >
+        <form class="signup-form" id="signup-form">
           <div class="form-row">
             <input
               class="email-input"
+              id="email-input"
               type="email"
               name="entry.340076253"
               placeholder="Enter your email"
               required
             />
-            <button class="cta" type="submit">Join Early Access</button>
+            <button class="cta" id="submit-button" type="submit">Join Early Access</button>
           </div>
         </form>
 
