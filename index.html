@@ -2,115 +2,115 @@
 <html lang="en">
 <head>
   <script src="https://cdn.amplitude.com/script/5563a87066774c27bb21d53c833ca3a7.js"></script>
-  <script>
-    window.submitted = false;
+<script>
+  window.submitted = false;
 
-    // Init Amplitude
-    window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
-      autocapture: true,
-      defaultTracking: true
-    });
+  // Init Amplitude
+  window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
+    autocapture: true,
+    defaultTracking: true
+  });
 
-    // UTM Tracking
-    (function () {
-      const params = new URLSearchParams(window.location.search);
+  let trafficProps = {};
 
-      let source = params.get('utm_source');
-      let medium = params.get('utm_medium');
-      let campaign = params.get('utm_campaign');
+  // UTM Tracking
+  (function () {
+    const params = new URLSearchParams(window.location.search);
 
-      if (source || medium || campaign) {
-        localStorage.setItem('utm_source', source);
-        localStorage.setItem('utm_medium', medium);
-        localStorage.setItem('utm_campaign', campaign);
-      } else {
-        source = localStorage.getItem('utm_source');
-        medium = localStorage.getItem('utm_medium');
-        campaign = localStorage.getItem('utm_campaign');
-      }
+    let source = params.get('utm_source');
+    let medium = params.get('utm_medium');
+    let campaign = params.get('utm_campaign');
 
-      if (source) {
-        window.amplitude.setUserProperties({
-          traffic_source: source,
-          traffic_medium: medium || 'unknown',
-          traffic_campaign: campaign || 'unknown'
-        });
+    if (source || medium || campaign) {
+      localStorage.setItem('utm_source', source);
+      localStorage.setItem('utm_medium', medium);
+      localStorage.setItem('utm_campaign', campaign);
+    } else {
+      source = localStorage.getItem('utm_source');
+      medium = localStorage.getItem('utm_medium');
+      campaign = localStorage.getItem('utm_campaign');
+    }
 
-        window.amplitude.track('Traffic Source Detected', {
-          source: source,
-          medium: medium,
-          campaign: campaign
-        });
-      }
-    })();
+    if (source) {
+      trafficProps = {
+        traffic_source: source,
+        traffic_medium: medium || 'unknown',
+        traffic_campaign: campaign || 'unknown'
+      };
 
-    window.amplitude.track('Landing Page Viewed');
+      window.amplitude.setUserProperties(trafficProps);
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const emailInput = document.querySelector('.email-input');
-      const signupForm = document.getElementById('signup-form');
-      const heroForm = document.querySelector('.hero-form');
-      const submitButton = document.getElementById('submit-button');
+      window.amplitude.track('Traffic Source Detected', trafficProps);
+    }
+  })();
 
-      if (emailInput) {
-        let focusedOnce = false;
-        emailInput.addEventListener('focus', function () {
-          if (!focusedOnce) {
-            focusedOnce = true;
-            window.amplitude.track('Email Field Focused');
-          }
-        });
-      }
+  window.amplitude.track('Landing Page Viewed', trafficProps);
 
-      if (!signupForm || !heroForm || !submitButton || !emailInput) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    const emailInput = document.querySelector('.email-input');
+    const signupForm = document.getElementById('signup-form');
+    const heroForm = document.querySelector('.hero-form');
+    const submitButton = document.getElementById('submit-button');
 
-      signupForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        if (window.submitted) return;
-
-        const email = emailInput.value.trim();
-        if (!email) return;
-
-        window.submitted = true;
-        window.amplitude.track('Early Access Submit Attempt');
-
-        submitButton.disabled = true;
-        submitButton.textContent = 'Submitting...';
-        submitButton.style.opacity = '0.7';
-        submitButton.style.cursor = 'not-allowed';
-        emailInput.readOnly = true;
-
-        const formData = new FormData();
-        formData.append('entry.340076253', email);
-
-        try {
-          await fetch('https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse', {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-          });
-
-          window.amplitude.track('Early Access Submitted');
-
-          heroForm.innerHTML = `
-            <div class="thank-you-card">
-              <h2>Thank you 💛</h2>
-              <p>You’re on the early access list. I’ll let you know when the app is ready. In the meantime, if you have questions you can reach me (Mona) at support@lscompanion.com.</p>
-            </div>
-          `;
-        } catch (error) {
-          window.submitted = false;
-          submitButton.disabled = false;
-          submitButton.textContent = 'Join Early Access';
-          submitButton.style.opacity = '1';
-          submitButton.style.cursor = 'pointer';
-          emailInput.readOnly = false;
-          alert('Something went wrong. Please try again.');
+    if (emailInput) {
+      let focusedOnce = false;
+      emailInput.addEventListener('focus', function () {
+        if (!focusedOnce) {
+          focusedOnce = true;
+          window.amplitude.track('Email Field Focused', trafficProps);
         }
       });
+    }
+
+    if (!signupForm || !heroForm || !submitButton || !emailInput) return;
+
+    signupForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      if (window.submitted) return;
+
+      const email = emailInput.value.trim();
+      if (!email) return;
+
+      window.submitted = true;
+      window.amplitude.track('Early Access Submit Attempt', trafficProps);
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+      submitButton.style.opacity = '0.7';
+      submitButton.style.cursor = 'not-allowed';
+      emailInput.readOnly = true;
+
+      const formData = new FormData();
+      formData.append('entry.340076253', email);
+
+      try {
+        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+
+        window.amplitude.track('Early Access Submitted', trafficProps);
+
+        heroForm.innerHTML = `
+          <div class="thank-you-card">
+            <h2>Thank you 💛</h2>
+            <p>You’re on the early access list. I’ll let you know when the app is ready. In the meantime, if you have questions you can reach me (Mona) at support@lscompanion.com.</p>
+          </div>
+        `;
+      } catch (error) {
+        window.submitted = false;
+        submitButton.disabled = false;
+        submitButton.textContent = 'Join Early Access';
+        submitButton.style.opacity = '1';
+        submitButton.style.cursor = 'pointer';
+        emailInput.readOnly = false;
+        alert('Something went wrong. Please try again.');
+      }
     });
-  </script>
+  });
+</script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
