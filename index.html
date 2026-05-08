@@ -169,28 +169,44 @@
       flex: 1;
     }
 
-    .hero {
-      width: 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 430px);
-      grid-template-areas:
-        "copy image"
-        "form image";
-      gap: 28px;
-      align-items: center;
-      min-height: 78vh;
-    }
+.hero {
 
-    .hero-copy {
-      grid-area: copy;
-      text-align: left;
-      max-width: 560px;
-    }
+  width: 100%;
 
- .hero-form {
-  grid-area: form;
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  min-height: auto;
+
+  padding-top: 28px;
+
+}
+
+.hero-copy {
+
+  width: 100%;
+
+  max-width: 980px;
+
+  text-align: center;
+
+  margin: 0 auto;
+
+}
+
+.hero-form {
+
+  width: 100%;
+
   max-width: 560px;
-  margin-top: -250px;
+
+  margin: 0 auto;
+
 }
 
     .hero-image {
@@ -218,22 +234,37 @@
       letter-spacing: -0.05em;
     }
 
- .subhead {
-  margin: 0 0 26px;
+.subhead {
+
+  margin: 0 auto 26px;
+
   color: var(--muted);
+
   font-size: clamp(17px, 1.5vw, 22px);
+
   font-weight: 500;
+
   line-height: 1.5;
-  max-width: 540px;
+
+  max-width: 760px;
+
 }
 
-    .store-buttons {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
+.store-buttons {
+
+  display: flex;
+
+  gap: 14px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  margin-top: 6px;
+
+}
 
     .app-store-badge {
       height: 60px;
@@ -317,13 +348,19 @@
       font-weight: 500;
     }
 
-    .hero-image img {
-      width: 120%;
-      max-width: 700px;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 26px 34px rgba(72, 42, 99, 0.10));
-    }
+   .hero-image img {
+
+  width: 100%;
+
+  max-width: 1050px;
+
+  height: auto;
+
+  display: block;
+
+  filter: drop-shadow(0 26px 34px rgba(72, 42, 99, 0.10));
+
+}
 
     .section {
       padding: 42px 0;
@@ -488,9 +525,21 @@
         justify-content: center;
       }
 
-      .hero-image img {
-        max-width: 850px;
-      }
+      .hero-image {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding-left: 0;
+
+  margin-top: 46px;
+
+}
 
       .feature-grid,
       .screenshot-grid {
@@ -541,48 +590,47 @@
 <body>
   <main class="page">
 
-    <section class="hero">
-      <div class="hero-copy">
-  
+<section class="hero">
+  <div class="hero-copy">
+    <h1>LS Companion App</h1>
 
-        <h1>LS Companion App</h1>
+    <p class="subhead">
+      A personalized app to track your lichen sclerosus symptoms, treatment, self-checks, and patterns — so you can better understand changes over time and prepare for appointments.
+    </p>
+  </div>
 
-        <p class="subhead">
-          A personalized app to track your lichen sclerosus symptoms, treatment, self-checks, and patterns — so you can better understand changes over time and prepare for appointments.
-        </p>
-      </div>
+  <div class="hero-form">
+    <div class="store-buttons">
+      <a href="https://apps.apple.com/ca/app/ls-companion/id6760978566" target="_blank" aria-label="Download LS Companion on the App Store">
+        <img src="appstore.png" class="app-store-badge" alt="Download on the App Store">
+      </a>
 
-      <div class="hero-image">
-        <img src="5screenshot.png" alt="LS Companion lichen sclerosus app screenshot showing insights and symptom tracking" />
-      </div>
+      <button class="android-badge-button" type="button" onclick="showAndroidForm()" aria-label="Get notified when Android is available">
+        <img src="google-badge.png" class="google-play-badge" alt="Coming soon to Google Play">
+      </button>
+    </div>
 
-      <div class="hero-form">
-        <div class="store-buttons">
-          <a href="https://apps.apple.com/ca/app/ls-companion/id6760978566" target="_blank" aria-label="Download LS Companion on the App Store">
-            <img src="appstore.png" class="app-store-badge" alt="Download on the App Store">
-          </a>
-
-     <button class="android-badge-button" type="button" onclick="showAndroidForm()" aria-label="Get notified when Android is available">
-  <img src="google-badge.png" class="google-play-badge" alt="Coming soon to Google Play">
-</button>
-</div>
-        <div id="android-form" style="display:none;">
-          <form class="signup-form" id="signup-form">
-            <div class="form-row">
-              <input
-                class="email-input"
-                id="email-input"
-                type="email"
-                name="entry.340076253"
-                placeholder="Get notified when Android is ready"
-                required
-              />
-              <button class="cta" id="submit-button" type="submit">Notify Me</button>
-            </div>
-          </form>
+    <div id="android-form" style="display:none;">
+      <form class="signup-form" id="signup-form">
+        <div class="form-row">
+          <input
+            class="email-input"
+            id="email-input"
+            type="email"
+            name="entry.340076253"
+            placeholder="Get notified when Android is ready"
+            required
+          />
+          <button class="cta" id="submit-button" type="submit">Notify Me</button>
         </div>
+      </form>
+    </div>
+  </div>
 
-      </div>
+  <div class="hero-image">
+    <img src="5screenshot.png" alt="LS Companion lichen sclerosus app screenshot showing insights and symptom tracking" />
+  </div>
+</section>
 
 
 </section>
