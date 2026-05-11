@@ -52,6 +52,17 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      const appStoreLink = document.getElementById('app-store-link');
+
+if (appStoreLink) {
+  appStoreLink.addEventListener('click', function () {
+    window.amplitude.track('App Store Badge Clicked', {
+      ...trafficProps,
+      platform: 'ios',
+      placement: 'hero'
+    });
+  });
+}
       const emailInput = document.querySelector('.email-input');
       const signupForm = document.getElementById('signup-form');
       const androidFormWrapper = document.getElementById('android-form');
@@ -603,8 +614,12 @@
 
   <div class="hero-form">
     <div class="store-buttons">
-      <a href="https://apps.apple.com/ca/app/ls-companion/id6760978566" target="_blank" aria-label="Download LS Companion on the App Store">
-        <img src="appstore.png" class="app-store-badge" alt="Download on the App Store">
+<a
+  id="app-store-link"
+  href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
+  target="_blank"
+  aria-label="Download LS Companion on the App Store"
+>        <img src="appstore.png" class="app-store-badge" alt="Download on the App Store">
       </a>
 
       <button class="android-badge-button" type="button" onclick="showAndroidForm()" aria-label="Get notified when Android is available">
