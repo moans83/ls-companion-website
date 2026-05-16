@@ -41,7 +41,8 @@
         window.amplitude.track('Traffic Source Detected', trafficProps);
       }
     })();
-
+console.log("UTM DEBUG trafficProps:", trafficProps);
+console.log("UTM DEBUG url:", window.location.href);
     window.amplitude.track('Landing Page Viewed', trafficProps);
 
     function showAndroidForm() {
