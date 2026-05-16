@@ -31,11 +31,11 @@
       }
 
       if (source) {
-        trafficProps = {
-          traffic_source: source,
-          traffic_medium: medium || 'unknown',
-          traffic_campaign: campaign || 'unknown'
-        };
+    trafficProps = {
+  utm_source: source,
+  utm_medium: medium || 'unknown',
+  utm_campaign: campaign || 'unknown'
+};
 
         window.amplitude.setUserProperties(trafficProps);
         window.amplitude.track('Traffic Source Detected', trafficProps);
