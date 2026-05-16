@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+
+    <script>
+      const target = "https://lscompanion.com/?utm_source=email&utm_medium=email&utm_campaign=app_launch";
+
+      localStorage.setItem("utm_source", "email");
+      localStorage.setItem("utm_medium", "email");
+      localStorage.setItem("utm_campaign", "app_launch");
+
+      window.location.replace(target);
+    </script>
+
+    <meta http-equiv="refresh" content="1; url=https://lscompanion.com/?utm_source=email&utm_medium=email&utm_campaign=app_launch" />
+  </head>
+
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
