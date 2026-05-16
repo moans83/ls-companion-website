@@ -19,10 +19,11 @@
       let medium = params.get('utm_medium');
       let campaign = params.get('utm_campaign');
 
-      if (source || medium || campaign) {
-        localStorage.setItem('utm_source', source);
-        localStorage.setItem('utm_medium', medium);
-        localStorage.setItem('utm_campaign', campaign);
+   if (source || medium || campaign) {
+  if (source) localStorage.setItem('utm_source', source);
+  if (medium) localStorage.setItem('utm_medium', medium);
+  if (campaign) localStorage.setItem('utm_campaign', campaign);
+}
       } else {
         source = localStorage.getItem('utm_source');
         medium = localStorage.getItem('utm_medium');
