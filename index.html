@@ -3,48 +3,51 @@
 <head>
   <link rel="icon" type="image/png" href="favicon.png">
   <script src="https://cdn.amplitude.com/script/5563a87066774c27bb21d53c833ca3a7.js"></script>
-  <script>
-    window.submitted = false;
+<script>
+  window.submitted = false;
 
-    window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
-      autocapture: true,
-      defaultTracking: true
-    });
+  window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
+    autocapture: true,
+    defaultTracking: true
+  });
 
-    let trafficProps = {};
+  let trafficProps = {};
 
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      let source = params.get('utm_source');
-      let medium = params.get('utm_medium');
-      let campaign = params.get('utm_campaign');
+  (function () {
+    const params = new URLSearchParams(window.location.search);
 
-   if (source || medium || campaign) {
-  if (source) localStorage.setItem('utm_source', source);
-  if (medium) localStorage.setItem('utm_medium', medium);
-  if (campaign) localStorage.setItem('utm_campaign', campaign);
-}
-      } else {
-        source = localStorage.getItem('utm_source');
-        medium = localStorage.getItem('utm_medium');
-        campaign = localStorage.getItem('utm_campaign');
-      }
+    let source = params.get('utm_source');
+    let medium = params.get('utm_medium');
+    let campaign = params.get('utm_campaign');
 
-      if (source) {
-    trafficProps = {
-  utm_source: source,
-  utm_medium: medium || 'unknown',
-  utm_campaign: campaign || 'unknown'
-};
+    if (source) localStorage.setItem('utm_source', source);
+    if (medium) localStorage.setItem('utm_medium', medium);
+    if (campaign) localStorage.setItem('utm_campaign', campaign);
 
-        window.amplitude.setUserProperties(trafficProps);
-        window.amplitude.track('Traffic Source Detected', trafficProps);
-      }
-    })();
-console.log("UTM DEBUG trafficProps:", trafficProps);
-console.log("UTM DEBUG url:", window.location.href);
+    source = source || localStorage.getItem('utm_source');
+    medium = medium || localStorage.getItem('utm_medium');
+    campaign = campaign || localStorage.getItem('utm_campaign');
+
+    if (source) {
+      trafficProps = {
+        utm_source: source,
+        utm_medium: medium || 'unknown',
+        utm_campaign: campaign || 'unknown',
+        traffic_source: source,
+        traffic_medium: medium || 'unknown',
+        traffic_campaign: campaign || 'unknown'
+      };
+
+      window.amplitude.setUserProperties(trafficProps);
+      window.amplitude.track('Traffic Source Detected', trafficProps);
+    }
+
+    console.log("UTM DEBUG trafficProps:", trafficProps);
+    console.log("UTM DEBUG url:", window.location.href);
+
     window.amplitude.track('Landing Page Viewed', trafficProps);
-
+  })();
+</script>
     function showAndroidForm() {
       const form = document.getElementById('android-form');
       if (form) {
