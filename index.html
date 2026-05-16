@@ -16,26 +16,19 @@
   (function () {
     const params = new URLSearchParams(window.location.search);
 
-    let source = params.get('utm_source');
-    let medium = params.get('utm_medium');
-    let campaign = params.get('utm_campaign');
+    let source = params.get('utm_source') || localStorage.getItem('utm_source');
+    let medium = params.get('utm_medium') || localStorage.getItem('utm_medium');
+    let campaign = params.get('utm_campaign') || localStorage.getItem('utm_campaign');
 
     if (source) localStorage.setItem('utm_source', source);
     if (medium) localStorage.setItem('utm_medium', medium);
     if (campaign) localStorage.setItem('utm_campaign', campaign);
 
-    source = source || localStorage.getItem('utm_source');
-    medium = medium || localStorage.getItem('utm_medium');
-    campaign = campaign || localStorage.getItem('utm_campaign');
-
     if (source) {
       trafficProps = {
         utm_source: source,
         utm_medium: medium || 'unknown',
-        utm_campaign: campaign || 'unknown',
-        traffic_source: source,
-        traffic_medium: medium || 'unknown',
-        traffic_campaign: campaign || 'unknown'
+        utm_campaign: campaign || 'unknown'
       };
 
       window.amplitude.setUserProperties(trafficProps);
@@ -47,7 +40,6 @@
 
     window.amplitude.track('Landing Page Viewed', trafficProps);
   })();
-</script>
     function showAndroidForm() {
       const form = document.getElementById('android-form');
       if (form) {
