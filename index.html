@@ -6,10 +6,12 @@
 <script>
   window.submitted = false;
 
-  window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
-    autocapture: true,
-    defaultTracking: true
-  });
+window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
+  autocapture: true,
+  defaultTracking: true,
+  includeUtm: true,
+  includeReferrer: true
+});
 
   let trafficProps = {};
 
