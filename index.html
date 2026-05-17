@@ -40,8 +40,10 @@ if (source) {
     console.log("UTM DEBUG trafficProps:", trafficProps);
     console.log("UTM DEBUG url:", window.location.href);
 
-    window.amplitude.track('Landing Page Viewed', trafficProps);
-  })();
+window.amplitude.track({
+  event_type: 'Landing Page Viewed',
+  event_properties: trafficProps
+});
     function showAndroidForm() {
       const form = document.getElementById('android-form');
       if (form) {
