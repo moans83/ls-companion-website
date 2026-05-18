@@ -13,38 +13,34 @@ window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
   includeUtm: true,
   includeReferrer: true
 });
-  let trafficProps = {};
-/*
-  let trafficProps = {};
+let trafficProps = {};
 
-  (function () {
-    const params = new URLSearchParams(window.location.search);
+(function () {
+  const params = new URLSearchParams(window.location.search);
 
-    let source = params.get('utm_source') || localStorage.getItem('utm_source');
-    let medium = params.get('utm_medium') || localStorage.getItem('utm_medium');
-    let campaign = params.get('utm_campaign') || localStorage.getItem('utm_campaign');
+  let source = params.get('utm_source') || localStorage.getItem('utm_source');
+  let medium = params.get('utm_medium') || localStorage.getItem('utm_medium');
+  let campaign = params.get('utm_campaign') || localStorage.getItem('utm_campaign');
 
-    if (source) localStorage.setItem('utm_source', source);
-    if (medium) localStorage.setItem('utm_medium', medium);
-    if (campaign) localStorage.setItem('utm_campaign', campaign);
+  if (source) localStorage.setItem('utm_source', source);
+  if (medium) localStorage.setItem('utm_medium', medium);
+  if (campaign) localStorage.setItem('utm_campaign', campaign);
 
-if (source) {
-  trafficProps = {
-    utm_source: source,
-    utm_medium: medium || 'unknown',
-    utm_campaign: campaign || 'unknown'
-  };
-*/
-  window.amplitude.track('Traffic Source Detected', trafficProps);
+  if (source) {
+    trafficProps = {
+      utm_source: source,
+      utm_medium: medium || 'unknown',
+      utm_campaign: campaign || 'unknown'
+    };
 
+    window.amplitude.track('Traffic Source Detected', trafficProps);
+  }
 
-    console.log("UTM DEBUG trafficProps:", trafficProps);
-    console.log("UTM DEBUG url:", window.location.href);
+  console.log("UTM DEBUG trafficProps:", trafficProps);
+  console.log("UTM DEBUG url:", window.location.href);
 
-window.amplitude.track({
-  event_type: 'Landing Page Viewed',
-  event_properties: trafficProps
-});
+  window.amplitude.track('Landing Page Viewed', trafficProps);
+})();
     function showAndroidForm() {
       const form = document.getElementById('android-form');
       if (form) {
