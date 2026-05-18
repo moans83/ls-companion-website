@@ -13,7 +13,8 @@ window.amplitude.init('5563a87066774c27bb21d53c833ca3a7', {
   includeUtm: true,
   includeReferrer: true
 });
-
+  let trafficProps = {};
+/*
   let trafficProps = {};
 
   (function () {
@@ -33,7 +34,7 @@ if (source) {
     utm_medium: medium || 'unknown',
     utm_campaign: campaign || 'unknown'
   };
-
+*/
   window.amplitude.track('Traffic Source Detected', trafficProps);
 }
 
