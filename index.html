@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
+  <script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-922228768/wMPrCNCRwbwcEKCw4LcD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-922228768"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -62,12 +76,14 @@ let trafficProps = {};
       const appStoreLink = document.getElementById('app-store-link');
 
 if (appStoreLink) {
-  appStoreLink.addEventListener('click', function () {
+  appStoreLink.addEventListener('click', function (e) {
+    gtag_report_conversion();
     window.amplitude.track('App Store Badge Clicked', {
       ...trafficProps,
       platform: 'ios',
       placement: 'hero'
     });
+
   });
 }
       const emailInput = document.querySelector('.email-input');
