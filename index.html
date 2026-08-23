@@ -262,14 +262,21 @@ if (appStoreLink) {
 
 }
 
-    .hero-image {
-      grid-area: image;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 0px;
-      margin-bottom: 40px;
-    }
+.hero-image {
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 40px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 26px 34px rgba(72, 42, 99, 0.10));
+}
 
     .eyebrow {
       margin: 0 0 14px;
@@ -685,17 +692,42 @@ if (appStoreLink) {
 
     <h1>Track your symptoms. See your patterns. Understand your health.</h1>
  <div class="hero-image">
-    <img src="website image.png" alt="LS Companion women's health tracker showing symptoms, wellbeing, cycles and health insights" />
+    <img src="website image.p<section class="hero">
+
+  <div class="hero-copy">
+
+    <h1>Track your symptoms. See your patterns. Understand your health.</h1>
+
   </div>
 
-  <p class="subhead">
-  LS Companion is a private women's health tracker for symptoms, wellbeing,
-  cycles, peri/menopause, vulvar health, and lichen sclerosus — so you can
-  understand changes over time and keep a clearer record of your health.
-  Built to be useful, even without a subscription.
-</p>
+  <div class="hero-image">
+
+    <img
+
+      src="web screenshot.png"
+
+      alt="LS Companion women's health tracker showing symptoms, wellbeing, cycles and health insights"
+
+    />
+
   </div>
- </div>
+
+  <div class="hero-copy">
+
+    <p class="subhead">
+
+      LS Companion is a private women's health tracker for symptoms, wellbeing,
+
+      cycles, peri/menopause, vulvar health, and lichen sclerosus — so you can
+
+      understand changes over time and keep a clearer record of your health.
+
+      Built to be useful, even without a subscription.
+
+    </p>
+
+  </div>
+
   <div class="hero-form">
     <div class="store-buttons">
 <a
