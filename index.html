@@ -277,6 +277,26 @@ if (appStoreLink) {
   display: block;
   filter: drop-shadow(0 26px 34px rgba(72, 42, 99, 0.10));
 }
+.hero-screenshots {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+}
+
+.hero-phone {
+  width: 31%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+
+  filter: drop-shadow(0 22px 34px rgba(72, 42, 99, 0.12));
+}
+    
 
     .eyebrow {
       margin: 0 0 14px;
@@ -626,6 +646,14 @@ if (appStoreLink) {
       .store-buttons {
         justify-content: center;
       }
+      .hero-screenshots {
+  max-width: 720px;
+  gap: 14px;
+}
+
+.hero-phone {
+  width: 32%;
+}
 
       .hero-image {
 
@@ -705,6 +733,35 @@ if (appStoreLink) {
 
 .menu-button span {
   width: 25px;
+}
+.hero-screenshots {
+  width: 100%;
+  max-width: none;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 18px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  padding: 0 8vw 18px;
+  margin-bottom: 28px;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.hero-screenshots::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-phone {
+  flex: 0 0 82%;
+  width: 82%;
+  max-width: none;
+
+  scroll-snap-align: center;
 }
     }
   </style>
