@@ -57,13 +57,6 @@ let trafficProps = {};
 
   window.amplitude.track('Landing Page Viewed', trafficProps);
 })();
-    function showAndroidForm() {
-      const form = document.getElementById('android-form');
-      if (form) {
-        form.style.display = 'block';
-        window.amplitude.track('Android Notify Interest Clicked', trafficProps);
-      }
-    }
 
     document.addEventListener('DOMContentLoaded', function () {
       const appStoreLink = document.getElementById('app-store-link');
@@ -79,68 +72,6 @@ if (appStoreLink) {
 
   });
 }
-      const emailInput = document.querySelector('.email-input');
-      const signupForm = document.getElementById('signup-form');
-      const androidFormWrapper = document.getElementById('android-form');
-      const submitButton = document.getElementById('submit-button');
-
-      if (emailInput) {
-        let focusedOnce = false;
-        emailInput.addEventListener('focus', function () {
-          if (!focusedOnce) {
-            focusedOnce = true;
-            window.amplitude.track('Email Field Focused', trafficProps);
-          }
-        });
-      }
-
-      if (!signupForm || !androidFormWrapper || !submitButton || !emailInput) return;
-
-      signupForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        if (window.submitted) return;
-
-        const email = emailInput.value.trim();
-        if (!email) return;
-
-        window.submitted = true;
-        window.amplitude.track('Android Notify Submit Attempt', trafficProps);
-
-        submitButton.disabled = true;
-        submitButton.textContent = 'Submitting...';
-        submitButton.style.opacity = '0.7';
-        submitButton.style.cursor = 'not-allowed';
-        emailInput.readOnly = true;
-
-        const formData = new FormData();
-        formData.append('entry.340076253', email);
-
-        try {
-          await fetch('https://docs.google.com/forms/d/e/1FAIpQLSddbM3r8sfMMAai2gkbggF8HeL3aDgqayX8Nm5RIv9uljPNCA/formResponse', {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-          });
-
-          window.amplitude.track('Android Notify Submitted', trafficProps);
-
-          androidFormWrapper.innerHTML = `
-            <div class="thank-you-card">
-              <h2>Thank you 💛</h2>
-              <p>You’re on the Android update list. I’ll let you know when it’s ready.</p>
-            </div>
-          `;
-        } catch (error) {
-          window.submitted = false;
-          submitButton.disabled = false;
-          submitButton.textContent = 'Notify Me';
-          submitButton.style.opacity = '1';
-          submitButton.style.cursor = 'pointer';
-          emailInput.readOnly = false;
-          alert('Something went wrong. Please try again.');
-        }
-      });
     });
   </script>
 
@@ -407,19 +338,6 @@ if (appStoreLink) {
       width: 190px;
       display: block;
     }
-.android-badge-button {
-  border: none;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.google-play-badge {
-  height: 56px;
-  width: 190px;
-  display: block;
-}
 
 .cta:hover {
   background: #2a1a38;
@@ -821,61 +739,24 @@ if (appStoreLink) {
     </p>
   </div>
 
-  <div class="hero-form">
-    <div class="store-buttons">
+<div class="hero-form">
+  <div class="store-buttons">
 
-      <a
-        id="app-store-link"
-        href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
-        target="_blank"
-        aria-label="Download LS Companion on the App Store"
+    <a
+      id="app-store-link"
+      href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
+      target="_blank"
+      aria-label="Download LS Companion on the App Store"
+    >
+      <img
+        src="appstore.png"
+        class="app-store-badge"
+        alt="Download on the App Store"
       >
-        <img
-          src="appstore.png"
-          class="app-store-badge"
-          alt="Download on the App Store"
-        >
-      </a>
-
-      <button
-        class="android-badge-button"
-        type="button"
-        onclick="showAndroidForm()"
-        aria-label="Get notified when Android is available"
-      >
-        <img
-          src="google-badge.png"
-          class="google-play-badge"
-          alt="Coming soon to Google Play"
-        >
-      </button>
-
-    </div>
-
-    <div id="android-form" style="display:none;">
-      <form class="signup-form" id="signup-form">
-        <div class="form-row">
-          <input
-            class="email-input"
-            id="email-input"
-            type="email"
-            name="entry.340076253"
-            placeholder="Get notified when Android is ready"
-            required
-          />
-
-          <button
-            class="cta"
-            id="submit-button"
-            type="submit"
-          >
-            Notify Me
-          </button>
-        </div>
-      </form>
-    </div>
+    </a>
 
   </div>
+</div>
 
 </section>
 
