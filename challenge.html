@@ -238,18 +238,18 @@
       object-fit: contain;
     }
 
-    main {
-      flex: 1;
+main {
+  flex: 1;
 
-      width: 100%;
-      max-width: 900px;
+  width: 100%;
+  max-width: 1200px;
 
-      margin: 0 auto;
+  margin: 0 auto;
 
-      padding: 65px 28px 80px;
+  padding: 65px 28px 80px;
 
-      text-align: center;
-    }
+  text-align: center;
+}
 
     .eyebrow {
       margin: 0 0 18px;
@@ -289,27 +289,39 @@
       font-weight: 500;
     }
 
-    .concept {
-      max-width: 700px;
+.concept {
+  max-width: 1120px;
 
-      margin: 48px auto 0;
+  margin: 48px auto 0;
 
-      display: grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-      grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 
-      gap: 14px;
-    }
+.concept-card {
+  overflow: hidden;
 
-    .concept-card {
-      padding: 24px 18px;
+  border-radius: 22px;
 
-      border-radius: 22px;
+  background: var(--soft-purple);
 
-      background: var(--soft-purple);
+  text-align: left;
+}
 
-      text-align: left;
-    }
+.concept-image {
+  width: 100%;
+  aspect-ratio: 260 / 170;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.concept-content {
+  padding: 20px 18px 22px;
+}
 
     .concept-number {
       display: flex;
@@ -494,6 +506,12 @@
 
       margin: 0 10px;
     }
+    @media (max-width: 1000px) {
+  .concept {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 620px;
+  }
+}
 
     @media (max-width: 700px) {
 
@@ -574,61 +592,102 @@
     </p>
 
 
-    <div class="concept">
+   <div class="concept">
 
-      <div class="concept-card">
+  <div class="concept-card">
 
-        <div class="concept-number">
-          1
-        </div>
+    <img
+      src="1-challenge.png"
+      class="concept-image"
+      alt="Woman completing today's challenge"
+    >
 
-        <h3>
-          One small challenge
-        </h3>
+    <div class="concept-content">
 
-        <p>
-          Something realistic you can actually fit into your day.
-        </p>
+      <div class="concept-number">1</div>
 
-      </div>
+      <h3>One small challenge</h3>
 
-
-      <div class="concept-card">
-
-        <div class="concept-number">
-          2
-        </div>
-
-        <h3>
-          Know why it matters
-        </h3>
-
-        <p>
-          Every challenge comes with a simple,
-          evidence-informed explanation.
-        </p>
-
-      </div>
-
-
-      <div class="concept-card">
-
-        <div class="concept-number">
-          3
-        </div>
-
-        <h3>
-          Do it together
-        </h3>
-
-        <p>
-          See how many other women are taking on
-          today's challenge with you.
-        </p>
-
-      </div>
+      <p>
+        Something realistic you can actually fit into your day.
+      </p>
 
     </div>
+
+  </div>
+
+
+  <div class="concept-card">
+
+    <img
+      src="2-challenge.png"
+      class="concept-image"
+      alt="Why today's challenge matters"
+    >
+
+    <div class="concept-content">
+
+      <div class="concept-number">2</div>
+
+      <h3>Know why it matters</h3>
+
+      <p>
+        Every challenge comes with a simple,
+        evidence-informed explanation.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="concept-card">
+
+    <img
+      src="3-challenge.png"
+      class="concept-image"
+      alt="Women taking part in today's challenge together"
+    >
+
+    <div class="concept-content">
+
+      <div class="concept-number">3</div>
+
+      <h3>Do it together</h3>
+
+      <p>
+        See how many other women are taking on
+        today's challenge with you.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="concept-card">
+
+    <img
+      src="4-challenge.png"
+      class="concept-image"
+      alt="Progress from completing daily challenges"
+    >
+
+    <div class="concept-content">
+
+      <div class="concept-number">4</div>
+
+      <h3>Invest in yourself</h3>
+
+      <p>
+        See the small things you do for yourself add up over time.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
 
     <section class="waitlist">
