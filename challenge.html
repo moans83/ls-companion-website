@@ -330,8 +330,9 @@ main {
 
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
 
-  margin: 10px 18px;
+  margin: 0;
 
   border-radius: 50%;
 
@@ -341,13 +342,20 @@ main {
   font-size: 14px;
   font-weight: 800;
 }
+.concept-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-    .concept-card h3 {
-      margin: 0 0 7px;
+  margin-bottom: 8px;
+}
 
-      font-size: 17px;
-      line-height: 1.25;
-    }
+ .concept-card h3 {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.25;
+}
 
     .concept-card p {
       margin: 0;
