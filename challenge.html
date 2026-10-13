@@ -320,42 +320,36 @@ main {
 }
 
 .concept-content {
-  padding: 10px 18px 18px;
+  padding: 20px 18px 22px;
 }
 
-.concept-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    .concept-number {
+      display: flex;
 
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
 
-  margin: 0;
+      width: 32px;
+      height: 32px;
 
-  border-radius: 50%;
+      margin-bottom: 15px;
 
-  background: var(--purple);
-  color: white;
+      border-radius: 50%;
 
-  font-size: 14px;
-  font-weight: 800;
-}
-.concept-heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+      background: var(--purple);
 
-  margin-bottom: 8px;
-}
+      color: white;
 
- .concept-card h3 {
-  margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+    }
 
-  font-size: 17px;
-  line-height: 1.25;
-}
+    .concept-card h3 {
+      margin: 0 0 7px;
+
+      font-size: 17px;
+      line-height: 1.25;
+    }
 
     .concept-card p {
       margin: 0;
@@ -543,6 +537,10 @@ main {
         text-align: center;
       }
 
+      .concept-number {
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       .form-row {
         grid-template-columns: 1fr;
@@ -554,7 +552,6 @@ main {
     }
   </style>
 </head>
-
 
 <body>
 
@@ -573,17 +570,14 @@ main {
 
   </header>
 
-
   <main>
 
     <p class="eyebrow">
     </p>
 
-
     <h1>
       One small investment in yourself, every day.
     </h1>
-
 
     <p class="intro">
       We're creating a new way for women to take small,
@@ -592,67 +586,54 @@ main {
       the same.
     </p>
 
-
    <div class="concept">
 
   <div class="concept-card">
 
-     
-      <div class="concept-number">1</div>
-   
-      <div class="concept-content">
-
-               
-      <h3>A simple challenge</h3>
-      <p>
-        Something realistic you can fit into your day, whether your at home, at the office or out and about.
-      </p>
-
-         
-    </div>
     <img
       src="1-challenge.png"
       class="concept-image"
       alt="Woman completing today's challenge"
     >
- 
 
+    <div class="concept-content">
 
+      <div class="concept-number">1</div>
 
- 
+      <h3>A simple challenge</h3>
+
+      <p>
+        Something realistic you can fit into your day, whether your at home, at the office or out and about.
+      </p>
+
+    </div>
 
   </div>
-
 
   <div class="concept-card">
 
-<div class="concept-content">
-
-  <div class="concept-heading">
-    <div class="concept-number">2</div>
-    <h3>Know why it matters</h3>
-  </div>
-
-  <p>
-    Every challenge comes with a simple,
-    evidence-based explanation.
-  </p>
-
-</div>
     <img
       src="2-challenge.png"
       class="concept-image"
       alt="Why today's challenge matters"
     >
 
+    <div class="concept-content">
 
+      <div class="concept-number">2</div>
+
+      <h3>Know why it matters</h3>
+
+      <p>
+        Every challenge comes with a simple,
+        evidence-based explanation.
+      </p>
+
+    </div>
 
   </div>
 
-
   <div class="concept-card">
-
-  <div class="concept-number">3</div>
 
     <img
       src="3-challenge.png"
@@ -662,7 +643,7 @@ main {
 
     <div class="concept-content">
 
- 
+      <div class="concept-number">3</div>
 
       <h3>Do it together</h3>
 
@@ -675,11 +656,8 @@ main {
 
   </div>
 
-
   <div class="concept-card">
 
-<div class="concept-number">4</div>
-   
     <img
       src="4-challenge.png"
       class="concept-image"
@@ -688,7 +666,7 @@ main {
 
     <div class="concept-content">
 
-
+      <div class="concept-number">4</div>
 
       <h3>Invest in yourself</h3>
 
@@ -702,7 +680,6 @@ main {
 
 </div>
 
-
     <section class="waitlist">
 
       <h2>
@@ -713,7 +690,6 @@ main {
         Join the early access list and we'll let you know
         when it's ready.
       </p>
-
 
       <div id="form-wrapper">
 
@@ -742,7 +718,6 @@ main {
 
         </form>
 
-
         <div class="privacy-note">
           No spam. Just an update when it's ready.
         </div>
@@ -752,7 +727,6 @@ main {
     </section>
 
   </main>
-
 
   <footer>
 
