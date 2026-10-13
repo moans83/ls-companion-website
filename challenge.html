@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>A small investment in yourself, every day | LS Companion</title>
+  <title>A small investment in yourself, every day | Daily Dose </title>
 
   <meta
     name="description"
@@ -238,18 +238,18 @@
       object-fit: contain;
     }
 
-    main {
-      flex: 1;
+main {
+  flex: 1;
 
-      width: 100%;
-      max-width: 900px;
+  width: 100%;
+  max-width: 1200px;
 
-      margin: 0 auto;
+  margin: 0 auto;
 
-      padding: 65px 28px 80px;
+  padding: 65px 28px 80px;
 
-      text-align: center;
-    }
+  text-align: center;
+}
 
     .eyebrow {
       margin: 0 0 18px;
@@ -289,55 +289,73 @@
       font-weight: 500;
     }
 
-    .concept {
-      max-width: 700px;
+.concept {
+  max-width: 1920px;
 
-      margin: 48px auto 0;
+  margin: 48px auto 0;
 
-      display: grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-      grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 
-      gap: 14px;
-    }
+.concept-card {
+  overflow: hidden;
 
-    .concept-card {
-      padding: 24px 18px;
+  border-radius: 22px;
 
-      border-radius: 22px;
+  background: var(--soft-purple);
 
-      background: var(--soft-purple);
+  text-align: left;
+}
 
-      text-align: left;
-    }
+.concept-image {
+  width: 100%;
+  aspect-ratio: 260 / 170;
 
-    .concept-number {
-      display: flex;
+  display: block;
 
-      align-items: center;
-      justify-content: center;
+  object-fit: cover;
+}
 
-      width: 32px;
-      height: 32px;
+.concept-content {
+  padding: 10px 18px 18px;
+}
 
-      margin-bottom: 15px;
+.concept-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 
-      background: var(--purple);
+  margin: 0;
 
-      color: white;
+  border-radius: 50%;
 
-      font-size: 14px;
-      font-weight: 800;
-    }
+  background: var(--purple);
+  color: white;
 
-    .concept-card h3 {
-      margin: 0 0 7px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.concept-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-      font-size: 17px;
-      line-height: 1.25;
-    }
+  margin-bottom: 8px;
+}
+
+ .concept-card h3 {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.25;
+}
 
     .concept-card p {
       margin: 0;
@@ -494,6 +512,12 @@
 
       margin: 0 10px;
     }
+    @media (max-width: 1000px) {
+  .concept {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 620px;
+  }
+}
 
     @media (max-width: 700px) {
 
@@ -519,10 +543,6 @@
         text-align: center;
       }
 
-      .concept-number {
-        margin-left: auto;
-        margin-right: auto;
-      }
 
       .form-row {
         grid-template-columns: 1fr;
@@ -544,11 +564,11 @@
 
     <a href="/" class="brand">
       <img
-        src="../logo.png"
-        alt="LS Companion"
+        src="../dose-logo.png"
+        alt=""
       >
 
-      <span>LS Companion</span>
+      <span>Daily Dose</span>
     </a>
 
   </header>
@@ -557,7 +577,6 @@
   <main>
 
     <p class="eyebrow">
-      Something new is coming
     </p>
 
 
@@ -568,67 +587,120 @@
 
     <p class="intro">
       We're creating a new way for women to take small,
-      meaningful actions for their health — one simple
+      meaningful actions for their health — a simple
       challenge at a time, alongside other women doing
       the same.
     </p>
 
 
-    <div class="concept">
+   <div class="concept">
 
-      <div class="concept-card">
+  <div class="concept-card">
 
-        <div class="concept-number">
-          1
-        </div>
+     
+      <div class="concept-number">1</div>
+   
+      <div class="concept-content">
 
-        <h3>
-          One small challenge
-        </h3>
+               
+      <h3>A simple challenge</h3>
+      <p>
+        Something realistic you can fit into your day, whether your at home, at the office or out and about.
+      </p>
 
-        <p>
-          Something realistic you can actually fit into your day.
-        </p>
-
-      </div>
-
-
-      <div class="concept-card">
-
-        <div class="concept-number">
-          2
-        </div>
-
-        <h3>
-          Know why it matters
-        </h3>
-
-        <p>
-          Every challenge comes with a simple,
-          evidence-informed explanation.
-        </p>
-
-      </div>
+         
+    </div>
+    <img
+      src="1-challenge.png"
+      class="concept-image"
+      alt="Woman completing today's challenge"
+    >
+ 
 
 
-      <div class="concept-card">
 
-        <div class="concept-number">
-          3
-        </div>
+ 
 
-        <h3>
-          Do it together
-        </h3>
+  </div>
 
-        <p>
-          See how many other women are taking on
-          today's challenge with you.
-        </p>
 
-      </div>
+  <div class="concept-card">
+
+<div class="concept-content">
+
+  <div class="concept-heading">
+    <div class="concept-number">2</div>
+    <h3>Know why it matters</h3>
+  </div>
+
+  <p>
+    Every challenge comes with a simple,
+    evidence-based explanation.
+  </p>
+
+</div>
+    <img
+      src="2-challenge.png"
+      class="concept-image"
+      alt="Why today's challenge matters"
+    >
+
+
+
+  </div>
+
+
+  <div class="concept-card">
+
+  <div class="concept-number">3</div>
+
+    <img
+      src="3-challenge.png"
+      class="concept-image"
+      alt="Women taking part in today's challenge together"
+    >
+
+    <div class="concept-content">
+
+ 
+
+      <h3>Do it together</h3>
+
+      <p>
+        See how many other women are taking on
+        today's challenge with you.
+      </p>
 
     </div>
+
+  </div>
+
+
+  <div class="concept-card">
+
+<div class="concept-number">4</div>
+   
+    <img
+      src="4-challenge.png"
+      class="concept-image"
+      alt="Progress from completing daily challenges"
+    >
+
+    <div class="concept-content">
+
+
+
+      <h3>Invest in yourself</h3>
+
+      <p>
+        See the small things you do for yourself add up over time.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
 
     <section class="waitlist">
