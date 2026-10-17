@@ -227,7 +227,16 @@ if (appStoreLink) {
 
   filter: none;
 }
-    
+.header-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.header-nav a:hover {
+  color: var(--soft-accent);
+}   
 
     .eyebrow {
       margin: 0 0 14px;
@@ -693,11 +702,9 @@ if (appStoreLink) {
     <span class="brand-name">LS Companion</span>
   </a>
 
-  <button class="menu-button" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+<nav class="header-nav">
+  <a href="/blog/">Blog</a>
+</nav>
 
 </header>
   <main class="page">
