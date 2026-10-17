@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" href="../favicon.png">
 
@@ -27,12 +27,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
   <style>
+
     :root {
       --bg: #ffffff;
       --text: #2f2238;
@@ -41,9 +43,6 @@
       --dark: #1c1326;
       --border: #e4dce8;
       --soft-purple: #f7f2f9;
-      --soft-pink: #fff4f8;
-      --soft-green: #f3f8f4;
-      --soft-cream: #fbf7ef;
     }
 
     * {
@@ -74,6 +73,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+
       color: var(--text);
       text-decoration: none;
     }
@@ -82,19 +82,12 @@
       width: 46px;
       height: 46px;
       object-fit: contain;
-      display: block;
     }
 
     .brand-name {
       font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.03em;
-    }
-
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
     }
 
     .header-nav a {
@@ -121,7 +114,7 @@
 
     .blog-hero {
       max-width: 850px;
-      margin: 0 auto 65px;
+      margin: 0 auto 55px;
       text-align: center;
     }
 
@@ -150,78 +143,52 @@
       line-height: 1.6;
     }
 
-    /* CATEGORY CARDS */
+    /* FILTERS */
 
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 85px;
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin-bottom: 50px;
     }
 
-    .category-card {
-      min-height: 220px;
-      padding: 26px 24px;
-      border-radius: 24px;
-      text-decoration: none;
+    .filter-button {
+      border: 1px solid var(--border);
+      background: white;
       color: var(--text);
 
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      padding: 10px 17px;
+      border-radius: 999px;
 
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .category-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(72, 42, 99, 0.10);
-    }
-
-    .category-card:nth-child(1) {
-      background: var(--soft-purple);
-    }
-
-    .category-card:nth-child(2) {
-      background: var(--soft-pink);
-    }
-
-    .category-card:nth-child(3) {
-      background: var(--soft-green);
-    }
-
-    .category-card:nth-child(4) {
-      background: var(--soft-cream);
-    }
-
-    .category-icon {
-      font-size: 31px;
-      margin-bottom: auto;
-    }
-
-    .category-card h2 {
-      margin: 25px 0 8px;
-      font-size: 21px;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
-
-    .category-card p {
-      margin: 0;
-      color: var(--muted);
+      font-family: inherit;
       font-size: 14px;
-      line-height: 1.55;
+      font-weight: 700;
+
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-button:hover {
+      border-color: var(--purple);
+    }
+
+    .filter-button.active {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: white;
     }
 
     /* ARTICLES */
 
     .articles-header {
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .articles-header h2 {
-      margin: 0 0 8px;
-      font-size: 32px;
+      margin: 0 0 7px;
+      font-size: 30px;
       letter-spacing: -0.04em;
     }
 
@@ -233,8 +200,8 @@
 
     .article-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 36px 24px;
     }
 
     .article-card {
@@ -243,13 +210,17 @@
       display: block;
     }
 
+    .article-card.hidden {
+      display: none;
+    }
+
     .article-image {
       width: 100%;
       aspect-ratio: 3 / 2;
-      background: var(--soft-purple);
       border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 18px;
+      background: var(--soft-purple);
+      margin-bottom: 17px;
     }
 
     .article-image img {
@@ -257,10 +228,36 @@
       height: 100%;
       object-fit: cover;
       display: block;
+
+      transition: transform 0.25s ease;
+    }
+
+    .article-card:hover .article-image img {
+      transform: scale(1.025);
+    }
+
+    /*
+      Temporary placeholders.
+      These disappear once we add actual article images.
+    */
+
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--soft-purple);
+      color: var(--purple);
+
+      font-size: 42px;
     }
 
     .article-category {
       margin-bottom: 8px;
+
       color: var(--purple);
       font-size: 12px;
       font-weight: 800;
@@ -270,6 +267,7 @@
 
     .article-card h3 {
       margin: 0 0 9px;
+
       font-size: 21px;
       line-height: 1.25;
       letter-spacing: -0.025em;
@@ -277,27 +275,10 @@
 
     .article-card p {
       margin: 0;
+
       color: var(--muted);
       font-size: 14px;
       line-height: 1.55;
-    }
-
-    /* EMPTY STATE FOR NOW */
-
-    .coming-soon {
-      grid-column: 1 / -1;
-      padding: 50px 30px;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .coming-soon strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--text);
-      font-size: 19px;
     }
 
     /* FOOTER */
@@ -318,17 +299,16 @@
 
     /* RESPONSIVE */
 
-    @media (max-width: 950px) {
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    @media (max-width: 900px) {
 
       .article-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
     }
 
     @media (max-width: 640px) {
+
       .site-header {
         padding: 20px 18px;
       }
@@ -347,37 +327,46 @@
       }
 
       .blog-hero {
-        margin-bottom: 45px;
+        margin-bottom: 38px;
       }
 
-      .category-grid {
-        grid-template-columns: 1fr;
-        margin-bottom: 60px;
-      }
-
-      .category-card {
-        min-height: 190px;
+      .filters {
+        justify-content: flex-start;
+        margin-bottom: 42px;
       }
 
       .article-grid {
         grid-template-columns: 1fr;
+        gap: 38px;
       }
 
       .footer a {
         display: inline-block;
         margin: 7px 9px;
       }
+
     }
+
   </style>
 </head>
+
 
 <body>
 
 <header class="site-header">
 
   <a href="/" class="brand">
-    <img src="../logo.png" alt="LS Companion logo" class="brand-logo">
-    <span class="brand-name">LS Companion</span>
+
+    <img
+      src="../logo.png"
+      alt="LS Companion logo"
+      class="brand-logo"
+    >
+
+    <span class="brand-name">
+      LS Companion
+    </span>
+
   </a>
 
   <nav class="header-nav">
@@ -386,13 +375,21 @@
 
 </header>
 
+
 <main>
+
+  <!-- HERO -->
 
   <section class="blog-hero">
 
-    <p class="eyebrow">Women's Health & Wellbeing</p>
+    <p class="eyebrow">
+      Women's Health & Wellbeing
+    </p>
 
-    <h1>Understand your health.<br>Invest in yourself.</h1>
+    <h1>
+      Understand your health.<br>
+      Invest in yourself.
+    </h1>
 
     <p>
       Practical, evidence-based information to help you understand your body
@@ -402,109 +399,257 @@
   </section>
 
 
-  <section class="category-grid">
+  <!-- CATEGORY FILTERS -->
 
-    <a href="/blog/movement-strength/" class="category-card">
-      <div class="category-icon">💪</div>
+  <div class="filters">
 
-      <h2>Movement & Strength</h2>
+    <button
+      class="filter-button active"
+      data-filter="all"
+    >
+      All
+    </button>
 
-      <p>
-        Strength, movement, bone health and realistic ways to stay active
-        in everyday life.
-      </p>
-    </a>
+    <button
+      class="filter-button"
+      data-filter="movement"
+    >
+      Movement & Strength
+    </button>
+
+    <button
+      class="filter-button"
+      data-filter="peri"
+    >
+      Perimenopause & Menopause
+    </button>
+
+    <button
+      class="filter-button"
+      data-filter="nutrition"
+    >
+      Nutrition
+    </button>
+
+    <button
+      class="filter-button"
+      data-filter="wellbeing"
+    >
+      Everyday Wellbeing
+    </button>
+
+  </div>
 
 
-    <a href="/blog/perimenopause-menopause/" class="category-card">
-      <div class="category-icon">☀️</div>
-
-      <h2>Perimenopause & Menopause</h2>
-
-      <p>
-        Hormones, changing cycles, symptoms, sleep, sexual and vulvar health,
-        and navigating the transition.
-      </p>
-    </a>
-
-
-    <a href="/blog/nutrition/" class="category-card">
-      <div class="category-icon">🍎</div>
-
-      <h2>Nutrition</h2>
-
-      <p>
-        Practical nutrition for energy, strength and supporting your health
-        through different stages of life.
-      </p>
-    </a>
-
-
-    <a href="/blog/everyday-wellbeing/" class="category-card">
-      <div class="category-icon">✨</div>
-
-      <h2>Everyday Wellbeing</h2>
-
-      <p>
-        Sleep, stress, energy and small things you can do to feel better
-        and take care of yourself.
-      </p>
-    </a>
-
-  </section>
-
+  <!-- ARTICLES -->
 
   <section>
 
     <div class="articles-header">
+
       <h2>Latest articles</h2>
 
       <p>
-        Evidence-based answers to the questions women are asking about their health.
+        Evidence-based answers to questions about your health and wellbeing.
       </p>
+
     </div>
 
 
     <div class="article-grid">
 
-      <!--
-        ARTICLE CARD TEMPLATE
 
-        When we start adding articles, duplicate this:
+      <!-- ARTICLE 1 -->
 
-        <a href="/blog/article-url/" class="article-card">
+      <a
+        href="/blog/5-minute-workouts/"
+        class="article-card"
+        data-category="movement"
+      >
 
-          <div class="article-image">
-            <img
-              src="/blog/images/article-image.jpg"
-              alt="Description of image"
-            >
+        <div class="article-image">
+
+          <div class="image-placeholder">
+            💪
           </div>
 
-          <div class="article-category">
-            Movement & Strength
+        </div>
+
+        <div class="article-category">
+          Movement & Strength
+        </div>
+
+        <h3>
+          Do 5-minute workouts actually make a difference?
+        </h3>
+
+        <p>
+          What the research tells us about fitting short bursts of movement
+          into a busy day.
+        </p>
+
+      </a>
+
+
+      <!-- ARTICLE 2 -->
+
+      <a
+        href="/blog/strength-training-after-40/"
+        class="article-card"
+        data-category="movement"
+      >
+
+        <div class="article-image">
+
+          <div class="image-placeholder">
+            🏋️
           </div>
 
-          <h3>
-            Do 5-minute workouts actually make a difference?
-          </h3>
+        </div>
 
-          <p>
-            What the research tells us about short bursts of movement
-            throughout the day.
-          </p>
+        <div class="article-category">
+          Movement & Strength
+        </div>
 
-        </a>
-      -->
+        <h3>
+          Why strength training matters more as we get older
+        </h3>
+
+        <p>
+          What happens to muscle as we age and why building strength
+          doesn't have to mean spending hours at the gym.
+        </p>
+
+      </a>
 
 
-      <div class="coming-soon">
+      <!-- ARTICLE 3 -->
 
-        <strong>New articles coming soon.</strong>
+      <a
+        href="/blog/protein-after-40/"
+        class="article-card"
+        data-category="nutrition"
+      >
 
-        We're building a practical library of women's health information.
+        <div class="article-image">
 
-      </div>
+          <div class="image-placeholder">
+            🍎
+          </div>
+
+        </div>
+
+        <div class="article-category">
+          Nutrition
+        </div>
+
+        <h3>
+          How much protein do women need as they get older?
+        </h3>
+
+        <p>
+          Why protein becomes increasingly important for maintaining
+          muscle and strength.
+        </p>
+
+      </a>
+
+
+      <!-- ARTICLE 4 -->
+
+      <a
+        href="/blog/perimenopause-sleep/"
+        class="article-card"
+        data-category="peri"
+      >
+
+        <div class="article-image">
+
+          <div class="image-placeholder">
+            🌙
+          </div>
+
+        </div>
+
+        <div class="article-category">
+          Perimenopause & Menopause
+        </div>
+
+        <h3>
+          Why can sleep get so difficult during perimenopause?
+        </h3>
+
+        <p>
+          Understanding the changes that can affect sleep during the
+          menopause transition.
+        </p>
+
+      </a>
+
+
+      <!-- ARTICLE 5 -->
+
+      <a
+        href="/blog/movement-at-work/"
+        class="article-card"
+        data-category="movement"
+      >
+
+        <div class="article-image">
+
+          <div class="image-placeholder">
+            🚶‍♀️
+          </div>
+
+        </div>
+
+        <div class="article-category">
+          Movement & Strength
+        </div>
+
+        <h3>
+          Stuck at a desk all day? Small ways to move more
+        </h3>
+
+        <p>
+          Realistic ways to add movement to your workday without
+          needing to find another hour in your schedule.
+        </p>
+
+      </a>
+
+
+      <!-- ARTICLE 6 -->
+
+      <a
+        href="/blog/small-health-habits/"
+        class="article-card"
+        data-category="wellbeing"
+      >
+
+        <div class="article-image">
+
+          <div class="image-placeholder">
+            ✨
+          </div>
+
+        </div>
+
+        <div class="article-category">
+          Everyday Wellbeing
+        </div>
+
+        <h3>
+          Why small things you do for yourself can add up
+        </h3>
+
+        <p>
+          Taking care of your health doesn't always require a major
+          lifestyle overhaul.
+        </p>
+
+      </a>
+
 
     </div>
 
@@ -515,9 +660,13 @@
 
 <footer class="footer">
 
-  <a href="/privacy.html">Privacy Policy</a>
+  <a href="/privacy.html">
+    Privacy Policy
+  </a>
 
-  <a href="/terms.html">Terms of Use</a>
+  <a href="/terms.html">
+    Terms of Use
+  </a>
 
   <a
     href="https://www.instagram.com/lscompanionapp/"
@@ -527,6 +676,59 @@
   </a>
 
 </footer>
+
+
+<script>
+
+  const filterButtons =
+    document.querySelectorAll('.filter-button');
+
+  const articles =
+    document.querySelectorAll('.article-card');
+
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const selectedCategory =
+        button.dataset.filter;
+
+
+      /* Update active button */
+
+      filterButtons.forEach(btn =>
+        btn.classList.remove('active')
+      );
+
+      button.classList.add('active');
+
+
+      /* Filter articles */
+
+      articles.forEach(article => {
+
+        if (
+          selectedCategory === 'all' ||
+          article.dataset.category === selectedCategory
+        ) {
+
+          article.classList.remove('hidden');
+
+        } else {
+
+          article.classList.add('hidden');
+
+        }
+
+      });
+
+    });
+
+  });
+
+</script>
+
 
 </body>
 </html>
