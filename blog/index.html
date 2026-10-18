@@ -280,6 +280,58 @@
       font-size: 14px;
       line-height: 1.55;
     }
+    /* MORE TO EXPLORE */
+
+.more-section {
+  margin-top: 75px;
+}
+
+.article-list {
+  border-top: 1px solid var(--border);
+}
+
+.list-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 27px 4px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.list-content {
+  max-width: 760px;
+}
+
+.list-card h3 {
+  margin: 0 0 7px;
+
+  color: var(--dark);
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.list-card p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.list-arrow {
+  flex-shrink: 0;
+  color: var(--purple);
+  font-size: 26px;
+  transition: transform 0.18s ease;
+}
+
+.list-card:hover .list-arrow {
+  transform: translateX(5px);
+}
 
     /* FOOTER */
 
@@ -462,7 +514,7 @@
       <!-- ARTICLE 1 -->
 
       <a
-        href="/blog/5-minute-workouts.html""
+        href="/blog/5-minute-workouts.html"
         class="article-card"
         data-category="movement"
       >
@@ -554,105 +606,122 @@
       </a>
 
 
-      <!-- ARTICLE 4 -->
-
-      <a
-        href="/blog/perimenopause-sleep.html"
-        class="article-card"
-        data-category="peri"
-      >
-
-        <div class="article-image">
-
-          <div class="image-placeholder">
-            🌙
-          </div>
-
-        </div>
-
-        <div class="article-category">
-          Perimenopause & Menopause
-        </div>
-
-        <h3>
-          Why can sleep get so difficult during perimenopause?
-        </h3>
-
-        <p>
-          Understanding the changes that can affect sleep during the
-          menopause transition.
-        </p>
-
-      </a>
-
-
-      <!-- ARTICLE 5 -->
-
-      <a
-        href="/blog/movement-at-work.html"
-        class="article-card"
-        data-category="movement"
-      >
-
-        <div class="article-image">
-
-          <div class="image-placeholder">
-            🚶‍♀️
-          </div>
-
-        </div>
-
-        <div class="article-category">
-          Movement & Strength
-        </div>
-
-        <h3>
-          Stuck at a desk all day? Small ways to move more
-        </h3>
-
-        <p>
-          Realistic ways to add movement to your workday without
-          needing to find another hour in your schedule.
-        </p>
-
-      </a>
-
-
-      <!-- ARTICLE 6 -->
-
-      <a
-        href="/blog/small-health-habits.html"
-        class="article-card"
-        data-category="wellbeing"
-      >
-
-        <div class="article-image">
-
-          <div class="image-placeholder">
-            ✨
-          </div>
-
-        </div>
-
-        <div class="article-category">
-          Everyday Wellbeing
-        </div>
-
-        <h3>
-          Too busy for a full workout? Small amounts of exercise still count
-        </h3>
-
-      <p>
-  What research says about minimal-dose exercise, maintaining your
-  strength and making the most of the time you have.
-</p>
-
-      </a>
-
-
     </div>
 
-  </section>
+
+    <!-- MORE TO EXPLORE -->
+
+    <div class="more-section">
+
+      <div class="articles-header">
+
+        <h2>More to explore</h2>
+
+        <p>
+          More practical reads about your health and wellbeing.
+        </p>
+
+      </div>
+
+
+      <div class="article-list">
+
+
+        <!-- ARTICLE 4 -->
+
+        <a
+          href="/blog/perimenopause-sleep.html"
+          class="article-card list-card"
+          data-category="peri"
+        >
+
+          <div class="list-content">
+
+            <div class="article-category">
+              Perimenopause & Menopause
+            </div>
+
+            <h3>
+              Why can sleep get so difficult during perimenopause?
+            </h3>
+
+            <p>
+              Understanding the changes that can affect sleep during the
+              menopause transition.
+            </p>
+
+          </div>
+
+          <div class="list-arrow">→</div>
+
+        </a>
+
+
+        <!-- ARTICLE 5 -->
+
+        <a
+          href="/blog/movement-at-work.html"
+          class="article-card list-card"
+          data-category="movement"
+        >
+
+          <div class="list-content">
+
+            <div class="article-category">
+              Movement & Strength
+            </div>
+
+            <h3>
+              Stuck at a desk all day? Small ways to move more
+            </h3>
+
+            <p>
+              Realistic ways to add movement to your workday without
+              needing to find another hour in your schedule.
+            </p>
+
+          </div>
+
+          <div class="list-arrow">→</div>
+
+        </a>
+
+
+        <!-- ARTICLE 6 -->
+
+        <a
+          href="/blog/small-health-habits.html"
+          class="article-card list-card"
+          data-category="wellbeing"
+        >
+
+          <div class="list-content">
+
+            <div class="article-category">
+              Everyday Wellbeing
+            </div>
+
+            <h3>
+              Too busy for a full workout? Small amounts of exercise still count
+            </h3>
+
+            <p>
+              What research says about minimal-dose exercise, maintaining your
+              strength and making the most of the time you have.
+            </p>
+
+          </div>
+
+          <div class="list-arrow">→</div>
+
+        </a>
+
+
+      </div>
+
+    </div>
+    
+    </section>
 
 </main>
 
