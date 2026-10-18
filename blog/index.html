@@ -33,6 +33,17 @@
     rel="stylesheet"
   >
 
+  <!-- Amplitude Analytics -->
+  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.10-min.js.gz"></script>
+  <script>
+    window.amplitude.init(
+      '5563a87066774c27bb21d53c833ca3a7',
+      {
+        defaultTracking: false
+      }
+    );
+  </script>
+
   <style>
 
     :root {
@@ -280,58 +291,91 @@
       font-size: 14px;
       line-height: 1.55;
     }
+
     /* MORE TO EXPLORE */
 
-.more-section {
-  margin-top: 75px;
-}
+    .more-section {
+      margin-top: 75px;
+    }
 
-.article-list {
-  border-top: 1px solid var(--border);
-}
+    .article-list {
+      border-top: 1px solid var(--border);
+    }
 
-.list-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+    .list-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
 
-  padding: 27px 4px;
+      padding: 27px 4px;
 
-  border-bottom: 1px solid var(--border);
-}
+      border-bottom: 1px solid var(--border);
+    }
 
-.list-content {
-  max-width: 760px;
-}
+    .list-content {
+      max-width: 760px;
+    }
 
-.list-card h3 {
-  margin: 0 0 7px;
+    .list-card h3 {
+      margin: 0 0 7px;
 
-  color: var(--dark);
-  font-size: 22px;
-  line-height: 1.3;
-  letter-spacing: -0.025em;
-}
+      color: var(--dark);
+      font-size: 22px;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+    }
 
-.list-card p {
-  margin: 0;
+    .list-card p {
+      margin: 0;
 
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.55;
-}
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
 
-.list-arrow {
-  flex-shrink: 0;
-  color: var(--purple);
-  font-size: 26px;
-  transition: transform 0.18s ease;
-}
+    .list-arrow {
+      flex-shrink: 0;
+      color: var(--purple);
+      font-size: 26px;
+      transition: transform 0.18s ease;
+    }
 
-.list-card:hover .list-arrow {
-  transform: translateX(5px);
-}
+    .list-card:hover .list-arrow {
+      transform: translateX(5px);
+    }
+
+    /* APP CTA */
+
+    .app-cta {
+      max-width: 720px;
+      margin: 85px auto 0;
+      padding: 42px 30px;
+      text-align: center;
+      background: var(--soft-purple);
+      border-radius: 24px;
+    }
+
+    .app-cta h2 {
+      margin: 0 0 10px;
+      color: var(--dark);
+      font-size: 28px;
+      letter-spacing: -0.035em;
+    }
+
+    .app-cta p {
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .app-store-badge {
+      display: block;
+      width: 150px;
+      height: auto;
+      margin: 0 auto;
+    }
 
     /* FOOTER */
 
@@ -508,214 +552,238 @@
     </div>
 
 
-   <div class="article-grid">
+    <div class="article-grid">
 
-  <!-- ARTICLE 1 -->
+      <!-- ARTICLE 1 -->
 
-  <a
-    href="/blog/5-minute-workouts.html"
-    class="article-card"
-    data-category="movement"
-  >
-
-    <div class="article-image">
-      <img
-        src="/blog/5-min-workout.png"
-        alt="Illustration representing movement and strength"
+      <a
+        href="/blog/5-minute-workouts.html"
+        class="article-card"
+        data-category="movement"
       >
-    </div>
 
-    <div class="article-category">
-      Movement & Strength
-    </div>
-
-    <h3>
-      Do 5-minute workouts actually make a difference?
-    </h3>
-
-    <p>
-      What the research tells us about fitting short bursts of movement
-      into a busy day.
-    </p>
-
-  </a>
-
-
-  <!-- ARTICLE 2 -->
-
-  <a
-    href="/blog/strength-training-after-40.html"
-    class="article-card"
-    data-category="movement"
-  >
-
-    <div class="article-image">
-      <img
-        src="/blog/strength-training-after-40.png"
-        alt="Pink hand-drawn dumbbell"
-      >
-    </div>
-
-    <div class="article-category">
-      Movement & Strength
-    </div>
-
-    <h3>
-      Why strength training matters more as we get older
-    </h3>
-
-    <p>
-      What happens to muscle as we age and why building strength
-      doesn't have to mean spending hours at the gym.
-    </p>
-
-  </a>
-
-
-  <!-- ARTICLE 3 -->
-
-  <a
-    href="/blog/perimenopause-sleep.html"
-    class="article-card"
-    data-category="peri"
-  >
-
-    <div class="article-image">
-      <img
-        src="/blog/perimenopause-sleep.png"
-        alt="Illustration representing sleep during perimenopause"
-      >
-    </div>
-
-    <div class="article-category">
-      Perimenopause & Menopause
-    </div>
-
-    <h3>
-      Why can sleep get so difficult during perimenopause?
-    </h3>
-
-    <p>
-      Understanding the changes that can affect sleep during the
-      menopause transition.
-    </p>
-
-  </a>
-
-</div>
-
-
-<!-- MORE TO EXPLORE -->
-
-<div class="more-section">
-
-  <div class="articles-header">
-
-    <h2>More to explore</h2>
-
-    <p>
-      More practical reads about your health and wellbeing.
-    </p>
-
-  </div>
-
-
-  <div class="article-list">
-
-    <!-- ARTICLE 4 -->
-
-    <a
-      href="/blog/protein-after-40.html"
-      class="article-card list-card"
-      data-category="nutrition"
-    >
-
-      <div class="list-content">
-
-        <div class="article-category">
-          Nutrition
+        <div class="article-image">
+          <img
+            src="/blog/5-min-workout.png"
+            alt="Illustration representing movement and strength"
+          >
         </div>
-
-        <h3>
-          Do women actually need more protein after 40?
-        </h3>
-
-        <p>
-          What the evidence actually says about protein, aging,
-          menopause, muscle and strength training.
-        </p>
-
-      </div>
-
-      <div class="list-arrow">→</div>
-
-    </a>
-
-
-    <!-- ARTICLE 5 -->
-
-    <a
-      href="/blog/movement-at-work.html"
-      class="article-card list-card"
-      data-category="movement"
-    >
-
-      <div class="list-content">
 
         <div class="article-category">
           Movement & Strength
         </div>
 
         <h3>
-          Stuck at a desk all day? Small ways to move more
+          Do 5-minute workouts actually make a difference?
         </h3>
 
         <p>
-          Realistic ways to add movement to your workday without
-          needing to find another hour in your schedule.
+          What the research tells us about fitting short bursts of movement
+          into a busy day.
         </p>
 
-      </div>
-
-      <div class="list-arrow">→</div>
-
-    </a>
+      </a>
 
 
-    <!-- ARTICLE 6 -->
+      <!-- ARTICLE 2 -->
 
-    <a
-      href="/blog/small-health-habits.html"
-      class="article-card list-card"
-      data-category="wellbeing"
-    >
+      <a
+        href="/blog/strength-training-after-40.html"
+        class="article-card"
+        data-category="movement"
+      >
 
-      <div class="list-content">
+        <div class="article-image">
+          <img
+            src="/blog/strength-training-after-40.png"
+            alt="Pink hand-drawn dumbbell"
+          >
+        </div>
 
         <div class="article-category">
-          Everyday Wellbeing
+          Movement & Strength
         </div>
 
         <h3>
-          Too busy for a full workout? Small amounts of exercise still count
+          Why strength training matters more as we get older
         </h3>
 
         <p>
-          What research says about minimal-dose exercise, maintaining your
-          strength and making the most of the time you have.
+          What happens to muscle as we age and why building strength
+          doesn't have to mean spending hours at the gym.
+        </p>
+
+      </a>
+
+
+      <!-- ARTICLE 3 -->
+
+      <a
+        href="/blog/perimenopause-sleep.html"
+        class="article-card"
+        data-category="peri"
+      >
+
+        <div class="article-image">
+          <img
+            src="/blog/perimenopause-sleep.png"
+            alt="Illustration representing sleep during perimenopause"
+          >
+        </div>
+
+        <div class="article-category">
+          Perimenopause & Menopause
+        </div>
+
+        <h3>
+          Why can sleep get so difficult during perimenopause?
+        </h3>
+
+        <p>
+          Understanding the changes that can affect sleep during the
+          menopause transition.
+        </p>
+
+      </a>
+
+    </div>
+
+
+    <!-- MORE TO EXPLORE -->
+
+    <div class="more-section">
+
+      <div class="articles-header">
+
+        <h2>More to explore</h2>
+
+        <p>
+          More practical reads about your health and wellbeing.
         </p>
 
       </div>
 
-      <div class="list-arrow">→</div>
 
+      <div class="article-list">
+
+        <!-- ARTICLE 4 -->
+
+        <a
+          href="/blog/protein-after-40.html"
+          class="article-card list-card"
+          data-category="nutrition"
+        >
+
+          <div class="list-content">
+
+            <div class="article-category">
+              Nutrition
+            </div>
+
+            <h3>
+              Do women actually need more protein after 40?
+            </h3>
+
+            <p>
+              What the evidence actually says about protein, aging,
+              menopause, muscle and strength training.
+            </p>
+
+          </div>
+
+          <div class="list-arrow">→</div>
+
+        </a>
+
+
+        <!-- ARTICLE 5 -->
+
+        <a
+          href="/blog/movement-at-work.html"
+          class="article-card list-card"
+          data-category="movement"
+        >
+
+          <div class="list-content">
+
+            <div class="article-category">
+              Movement & Strength
+            </div>
+
+            <h3>
+              Stuck at a desk all day? Small ways to move more
+            </h3>
+
+            <p>
+              Realistic ways to add movement to your workday without
+              needing to find another hour in your schedule.
+            </p>
+
+          </div>
+
+          <div class="list-arrow">→</div>
+
+        </a>
+
+
+        <!-- ARTICLE 6 -->
+
+        <a
+          href="/blog/small-health-habits.html"
+          class="article-card list-card"
+          data-category="wellbeing"
+        >
+
+          <div class="list-content">
+
+            <div class="article-category">
+              Everyday Wellbeing
+            </div>
+
+            <h3>
+              Too busy for a full workout? Small amounts of exercise still count
+            </h3>
+
+            <p>
+              What research says about minimal-dose exercise, maintaining your
+              strength and making the most of the time you have.
+            </p>
+
+          </div>
+
+          <div class="list-arrow">→</div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- APP CTA -->
+
+  <section class="app-cta">
+
+    <h2>Understand your health beyond the article.</h2>
+
+    <p>
+      Track symptoms, wellbeing and patterns over time with LS Companion.
+    </p>
+
+    <a
+      href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
+      id="blog-app-store-link"
+    >
+      <img
+        src="../appstore.png"
+        alt="Download LS Companion on the App Store"
+        class="app-store-badge"
+      >
     </a>
 
-  </div>
-
-</div>
-    
-    </section>
+  </section>
 
 </main>
 
@@ -749,12 +817,24 @@
     document.querySelectorAll('.article-card');
 
 
+  /* BLOG PAGE VIEW */
+
+  amplitude.track('Blog Viewed');
+
+
   filterButtons.forEach(button => {
 
     button.addEventListener('click', () => {
 
       const selectedCategory =
         button.dataset.filter;
+
+
+      /* TRACK CATEGORY FILTER */
+
+      amplitude.track('Blog Category Filtered', {
+        category: selectedCategory
+      });
 
 
       /* Update active button */
@@ -788,6 +868,44 @@
     });
 
   });
+
+
+  /* TRACK ARTICLE CLICKS */
+
+  articles.forEach(article => {
+
+    article.addEventListener('click', () => {
+
+      const title =
+        article.querySelector('h3')?.textContent.trim();
+
+      amplitude.track('Blog Article Clicked', {
+        title: title,
+        category: article.dataset.category,
+        url: article.getAttribute('href')
+      });
+
+    });
+
+  });
+
+
+  /* TRACK APP STORE CTA */
+
+  const appStoreLink =
+    document.getElementById('blog-app-store-link');
+
+  if (appStoreLink) {
+
+    appStoreLink.addEventListener('click', () => {
+
+      amplitude.track('Blog App Store Clicked', {
+        location: 'blog_index_bottom_cta'
+      });
+
+    });
+
+  }
 
 </script>
 
