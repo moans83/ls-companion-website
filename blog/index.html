@@ -180,106 +180,171 @@
       color: white;
     }
 
-    /* ARTICLES */
+   /* ARTICLES */
 
-    .articles-header {
-      margin-bottom: 26px;
-    }
+.articles-header {
+  margin-bottom: 26px;
+}
 
-    .articles-header h2 {
-      margin: 0 0 7px;
-      font-size: 30px;
-      letter-spacing: -0.04em;
-    }
+.articles-header h2 {
+  margin: 0 0 7px;
+  font-size: 30px;
+  letter-spacing: -0.04em;
+}
 
-    .articles-header p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
+.articles-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
 
-    .article-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 36px 24px;
-    }
 
-    .article-card {
-      color: var(--text);
-      text-decoration: none;
-      display: block;
-    }
+/* FEATURED ARTICLES */
 
-    .article-card.hidden {
-      display: none;
-    }
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
 
-    .article-image {
-      width: 100%;
-      aspect-ratio: 3 / 2;
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--soft-purple);
-      margin-bottom: 17px;
-    }
+.article-card {
+  color: var(--text);
+  text-decoration: none;
+}
 
-    .article-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+.article-card.hidden {
+  display: none;
+}
 
-      transition: transform 0.25s ease;
-    }
+.featured-card {
+  display: block;
+}
 
-    .article-card:hover .article-image img {
-      transform: scale(1.025);
-    }
+.article-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--soft-purple);
+  margin-bottom: 17px;
+}
 
-    /*
-      Temporary placeholders.
-      These disappear once we add actual article images.
-    */
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 
-    .image-placeholder {
-      width: 100%;
-      height: 100%;
+  transition: transform 0.25s ease;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.featured-card:hover .article-image img {
+  transform: scale(1.025);
+}
 
-      background: var(--soft-purple);
-      color: var(--purple);
+.image-placeholder {
+  width: 100%;
+  height: 100%;
 
-      font-size: 42px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .article-category {
-      margin-bottom: 8px;
+  background: var(--soft-purple);
+  color: var(--purple);
 
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
+  font-size: 42px;
+}
 
-    .article-card h3 {
-      margin: 0 0 9px;
+.article-category {
+  margin-bottom: 8px;
 
-      font-size: 21px;
-      line-height: 1.25;
-      letter-spacing: -0.025em;
-    }
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
-    .article-card p {
-      margin: 0;
+.featured-card h3 {
+  margin: 0 0 9px;
 
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.featured-card p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+
+/* MORE TO EXPLORE */
+
+.more-section {
+  margin-top: 80px;
+}
+
+.article-list {
+  border-top: 1px solid var(--border);
+}
+
+.list-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 27px 4px;
+
+  border-bottom: 1px solid var(--border);
+
+  transition: padding 0.18s ease;
+}
+
+.list-card:hover {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.list-content {
+  max-width: 760px;
+}
+
+.list-card h3 {
+  margin: 0 0 7px;
+
+  color: var(--dark);
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.list-card p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.list-arrow {
+  flex-shrink: 0;
+
+  color: var(--purple);
+  font-size: 26px;
+  font-weight: 500;
+
+  transition: transform 0.18s ease;
+}
+
+.list-card:hover .list-arrow {
+  transform: translateX(5px);
+}
 
     /* FOOTER */
 
@@ -301,9 +366,9 @@
 
     @media (max-width: 900px) {
 
-      .article-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .featured-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     }
 
@@ -335,10 +400,31 @@
         margin-bottom: 42px;
       }
 
-      .article-grid {
-        grid-template-columns: 1fr;
-        gap: 38px;
-      }
+     .featured-grid {
+  grid-template-columns: 1fr;
+  gap: 38px;
+}
+
+.more-section {
+  margin-top: 65px;
+}
+
+.list-card {
+  padding: 23px 2px;
+  gap: 18px;
+}
+
+.list-card h3 {
+  font-size: 20px;
+}
+
+.list-card p {
+  font-size: 14px;
+}
+
+.list-arrow {
+  font-size: 22px;
+}
 
       .footer a {
         display: inline-block;
@@ -441,52 +527,164 @@
   </div>
 
 
-  <!-- ARTICLES -->
+ <!-- ARTICLES -->
 
-  <section>
+<section>
 
-    <div class="articles-header">
+  <div class="articles-header">
+    <h2>Featured</h2>
 
-      <h2>Latest articles</h2>
+    <p>
+      Evidence-based answers to questions about your health and wellbeing.
+    </p>
+  </div>
+
+
+  <!-- FEATURED ARTICLES -->
+
+  <div class="featured-grid">
+
+
+    <!-- FEATURED 1 -->
+
+    <a
+      href="/blog/strength-training-after-40.html"
+      class="article-card featured-card"
+      data-category="movement"
+    >
+
+      <div class="article-image">
+        <img
+          src="dumbell.png"
+          alt="Pink hand-drawn dumbbell"
+        >
+      </div>
+
+      <div class="article-category">
+        Movement & Strength
+      </div>
+
+      <h3>
+        Why strength training matters more as we get older
+      </h3>
 
       <p>
-        Evidence-based answers to questions about your health and wellbeing.
+        What happens to muscle as we age and why building strength
+        doesn't have to mean spending hours at the gym.
       </p>
 
+    </a>
+
+
+    <!-- FEATURED 2 -->
+
+    <a
+      href="/blog/perimenopause-sleep.html"
+      class="article-card featured-card"
+      data-category="peri"
+    >
+
+      <div class="article-image">
+        <!-- Replace with your image -->
+        <div class="image-placeholder">
+          🌙
+        </div>
+      </div>
+
+      <div class="article-category">
+        Perimenopause & Menopause
+      </div>
+
+      <h3>
+        Why can sleep get so difficult during perimenopause?
+      </h3>
+
+      <p>
+        Understanding the changes that can affect sleep during the
+        menopause transition.
+      </p>
+
+    </a>
+
+
+    <!-- FEATURED 3 -->
+
+    <a
+      href="/blog/protein-after-40.html"
+      class="article-card featured-card"
+      data-category="nutrition"
+    >
+
+      <div class="article-image">
+        <!-- Replace with your image -->
+        <div class="image-placeholder">
+          🍎
+        </div>
+      </div>
+
+      <div class="article-category">
+        Nutrition
+      </div>
+
+      <h3>
+        Do women actually need more protein after 40?
+      </h3>
+
+      <p>
+        What the evidence actually says about protein, aging,
+        menopause, muscle and strength training.
+      </p>
+
+    </a>
+
+
+  </div>
+
+
+  <!-- MORE TO EXPLORE -->
+
+  <div class="more-section">
+
+    <div class="articles-header">
+      <h2>More to explore</h2>
+
+      <p>
+        More practical reads for taking care of yourself in real life.
+      </p>
     </div>
 
 
-    <div class="article-grid">
+    <div class="article-list">
 
 
       <!-- ARTICLE 1 -->
 
       <a
-        href="/blog/5-minute-workouts.html""
-        class="article-card"
+        href="/blog/5-minute-workouts.html"
+        class="article-card list-card"
         data-category="movement"
       >
 
-        <div class="article-image">
+        <div class="list-content">
 
-          <div class="image-placeholder">
-            💪
+          <div class="article-category">
+            Movement & Strength
           </div>
 
+          <h3>
+            Do 5-minute workouts actually make a difference?
+          </h3>
+
+          <p>
+            What the research tells us about fitting short bursts
+            of movement into a busy day.
+          </p>
+
         </div>
 
-        <div class="article-category">
-          Movement & Strength
+        <div class="list-arrow">
+          →
         </div>
-
-        <h3>
-          Do 5-minute workouts actually make a difference?
-        </h3>
-
-        <p>
-          What the research tells us about fitting short bursts of movement
-          into a busy day.
-        </p>
 
       </a>
 
@@ -494,30 +692,31 @@
       <!-- ARTICLE 2 -->
 
       <a
-        href="/blog/strength-training-after-40.html"
-        class="article-card"
+        href="/blog/movement-at-work.html"
+        class="article-card list-card"
         data-category="movement"
       >
 
-     <div class="article-image">
-  <img
-    src="/blog/dumbell.png"
-    alt="Pink hand-drawn dumbbell"
-  >
-</div>
+        <div class="list-content">
 
-        <div class="article-category">
-          Movement & Strength
+          <div class="article-category">
+            Movement & Strength
+          </div>
+
+          <h3>
+            Stuck at a desk all day? Small ways to move more
+          </h3>
+
+          <p>
+            Realistic ways to add movement to your workday without
+            needing to find another hour in your schedule.
+          </p>
+
         </div>
 
-        <h3>
-          Why strength training matters more as we get older
-        </h3>
-
-        <p>
-          What happens to muscle as we age and why building strength
-          doesn't have to mean spending hours at the gym.
-        </p>
+        <div class="list-arrow">
+          →
+        </div>
 
       </a>
 
@@ -525,134 +724,40 @@
       <!-- ARTICLE 3 -->
 
       <a
-        href="/blog/protein-after-40.html"
-        class="article-card"
-        data-category="nutrition"
-      >
-
-        <div class="article-image">
-
-          <div class="image-placeholder">
-            🍎
-          </div>
-
-        </div>
-
-        <div class="article-category">
-          Nutrition
-        </div>
-
-        <h3>
-          How much protein do women need as they get older?
-        </h3>
-
-        <p>
-          Why protein becomes increasingly important for maintaining
-          muscle and strength.
-        </p>
-
-      </a>
-
-
-      <!-- ARTICLE 4 -->
-
-      <a
-        href="/blog/perimenopause-sleep.html"
-        class="article-card"
-        data-category="peri"
-      >
-
-        <div class="article-image">
-
-          <div class="image-placeholder">
-            🌙
-          </div>
-
-        </div>
-
-        <div class="article-category">
-          Perimenopause & Menopause
-        </div>
-
-        <h3>
-          Why can sleep get so difficult during perimenopause?
-        </h3>
-
-        <p>
-          Understanding the changes that can affect sleep during the
-          menopause transition.
-        </p>
-
-      </a>
-
-
-      <!-- ARTICLE 5 -->
-
-      <a
-        href="/blog/movement-at-work.html"
-        class="article-card"
-        data-category="movement"
-      >
-
-        <div class="article-image">
-
-          <div class="image-placeholder">
-            🚶‍♀️
-          </div>
-
-        </div>
-
-        <div class="article-category">
-          Movement & Strength
-        </div>
-
-        <h3>
-          Stuck at a desk all day? Small ways to move more
-        </h3>
-
-        <p>
-          Realistic ways to add movement to your workday without
-          needing to find another hour in your schedule.
-        </p>
-
-      </a>
-
-
-      <!-- ARTICLE 6 -->
-
-      <a
         href="/blog/small-health-habits.html"
-        class="article-card"
+        class="article-card list-card"
         data-category="wellbeing"
       >
 
-        <div class="article-image">
+        <div class="list-content">
 
-          <div class="image-placeholder">
-            ✨
+          <div class="article-category">
+            Everyday Wellbeing
           </div>
 
+          <h3>
+            Too busy for a full workout? Small amounts of exercise still count
+          </h3>
+
+          <p>
+            What research says about minimal-dose exercise,
+            maintaining your strength and making the most of the time you have.
+          </p>
+
         </div>
 
-        <div class="article-category">
-          Everyday Wellbeing
+        <div class="list-arrow">
+          →
         </div>
-
-        <h3>
-          Too busy for a full workout? Small amounts of exercise still count
-        </h3>
-
-      <p>
-  What research says about minimal-dose exercise, maintaining your
-  strength and making the most of the time you have.
-</p>
 
       </a>
 
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 </main>
 
