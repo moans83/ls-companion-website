@@ -218,7 +218,40 @@
     .article-body strong {
       color: var(--dark);
     }
+     /* blog signup */
+.blog-signup {
+  margin: 50px 0 38px;
+  padding: 30px;
+  background: var(--soft-purple);
+  border-radius: 22px;
 
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.blog-signup-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  justify-self: end;
+}
+
+.blog-signup-form {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+}
+
+.blog-signup-success {
+  display: none;
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--purple);
+  font-size: 14px;
+  font-weight: 700;
+}
     /* CALLOUT */
 
     .takeaway {
@@ -691,7 +724,19 @@
       medical history and family history are all part of the clinical
       assessment described in current menopause guidance.
     </p>
+<div class="blog-signup-copy">
+  <h2>Want the next article?</h2>
+  <p>
+    Get new evidence-based women's health articles in your inbox.
+    No noise, just useful reads.
+  </p>
+</div>
 
+<img
+  src="/dose-logo-muscle.png"
+  alt=""
+  class="blog-signup-logo"
+>
 
     <div class="appointment-box">
 
