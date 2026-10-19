@@ -39,7 +39,7 @@
 
   <meta
     property="og:image"
-    content="https://lscompanion.com/blog/meno.png"
+    content="https://lscompanion.com/blog/meno-young.png"
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -447,7 +447,7 @@
   </header>
 
   <img
-    src="/blog/meno.png"
+    src="/blog/meno-young.png"
     alt="Woman navigating possible perimenopause symptoms"
     class="article-image"
   >
