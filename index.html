@@ -78,28 +78,28 @@ if (appStoreLink) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Women's Health, Perimenopause & Lichen Sclerosus Tracker | LS Companion</title>
+<title>Gruvi | Women's Health, Perimenopause & Symptom Tracker</title>
 
 <meta
   name="description"
-  content="LS Companion is a private women's health tracker for symptoms, wellbeing, cycles, perimenopause, vulvar health and lichen sclerosus. Track changes, treatments and patterns over time — with most features free."
+  content="Gruvi is a private women's health tracker for symptoms, wellbeing, cycles, perimenopause and vulvar health. Track changes, treatments and patterns over time — with most features free."
 >
 
 <meta
   name="keywords"
-  content="women's health tracker, symptom tracker, perimenopause tracker, menopause tracker, lichen sclerosus tracker, vulvar health tracker, wellbeing tracker, cycle tracker, LS tracker"
+  content="women's health tracker, symptom tracker, perimenopause tracker, menopause tracker, vulvar health tracker, wellbeing tracker, cycle tracker"
 >
 
 <meta name="robots" content="index, follow">
 
 <meta
   property="og:title"
-  content="LS Companion – Women's Health, Perimenopause & LS Tracker"
+  content="Gruvi – Women's Health, Perimenopause & Symptom Tracker"
 >
 
 <meta
   property="og:description"
-  content="Track symptoms, wellbeing, cycles, peri/menopause, vulvar health and lichen sclerosus in one private app. See patterns over time and keep a clearer record of your health."
+  content="Track symptoms, wellbeing, cycles, peri/menopause and vulvar health in one private app. See patterns over time and keep a clearer record of your health."
 >
 
 <meta property="og:image" content="https://lscompanion.com/insights.png">
@@ -691,6 +691,58 @@ if (appStoreLink) {
   scroll-snap-align: center;
 }
     }
+  
+/* Gruvi feature carousel: isolated styles, no external screenshot dependencies */
+.gruvi-showcase { width: 100%; max-width: 1120px; margin: 32px auto 48px; }
+.gruvi-showcase-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; text-align: left; }
+.gruvi-showcase-kicker { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #8c6098; margin: 0 0 5px; }
+.gruvi-showcase-heading { font-size: clamp(19px,2vw,26px); line-height: 1.25; letter-spacing: -.035em; margin: 0; color: var(--text); }
+.gruvi-carousel-controls { display: flex; gap: 9px; flex-shrink: 0; }
+.gruvi-carousel-arrow { width: 40px; height: 40px; border: 1px solid #e4dce8; border-radius: 50%; background: #fff; color: #2f2238; font: 700 21px/1 'Manrope', sans-serif; cursor: pointer; display: grid; place-items: center; }
+.gruvi-carousel-arrow:hover { background: #f5eff7; }
+.gruvi-carousel-arrow:focus-visible, .gruvi-slide:focus-visible { outline: 3px solid #b779ca; outline-offset: 3px; }
+.gruvi-carousel-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 2px; scrollbar-width: none; overscroll-behavior-x: contain; padding: 4px 2px 16px; -webkit-overflow-scrolling: touch; }
+.gruvi-carousel-track::-webkit-scrollbar { display: none; }
+.gruvi-slide { flex: 0 0 calc((100% - 32px)/3); scroll-snap-align: start; border: 1px solid #e9e1ed; border-radius: 25px; padding: 23px 22px 21px; min-height: 393px; background: linear-gradient(165deg,#faf6fb 0%,#f5edf7 100%); text-align: left; display: flex; flex-direction: column; overflow: hidden; }
+.gruvi-slide:nth-child(2) { background: linear-gradient(165deg,#fcf7fd,#eee2f2); }
+.gruvi-slide:nth-child(3) { background: linear-gradient(165deg,#fff8fb,#f4ebf7); }
+.gruvi-slide:nth-child(4) { background: linear-gradient(165deg,#fff6fa,#f7e7f0); }
+.gruvi-slide-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #885b91; margin-bottom: 8px; }
+.gruvi-slide h3 { font-size: 22px; font-weight: 800; letter-spacing: -.04em; line-height: 1.17; margin: 0 0 8px; }
+.gruvi-slide > p { color: #6f5b7d; font-size: 13px; line-height: 1.55; margin: 0 0 18px; }
+.gruvi-preview { background: #fff; border: 1px solid rgba(118,74,136,.12); border-radius: 18px; padding: 17px; box-shadow: 0 12px 28px rgba(49,23,57,.07); flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 13px; min-height: 188px; }
+.gruvi-preview-label { font-size: 11px; font-weight: 800; color: #76417a; }
+.gruvi-stars { display: flex; justify-content: space-between; color: #e33f94; font-size: 26px; letter-spacing: 3px; }
+.gruvi-mini-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #695974; gap: 10px; }
+.gruvi-pill { border-radius: 20px; padding: 7px 11px; background: #f1e8f3; color: #6e4176; font-weight: 800; font-size: 11px; }
+.gruvi-mini-line { height: 7px; background: #ede5f1; border-radius: 20px; }
+.gruvi-chart { height: 92px; display: flex; align-items: end; justify-content: space-around; gap: 8px; padding: 0 2px 4px; border-bottom: 1px solid #e8deeb; }
+.gruvi-chart span { width: 27px; border-radius: 8px 8px 2px 2px; background: linear-gradient(#e64a9a,#a76db6); }
+.gruvi-mini-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.gruvi-mini-chips span { border-radius: 100px; background: #f4ebf6; color: #75477e; padding: 6px 8px; font-weight: 700; font-size: 10px; }
+.gruvi-article-tag { color: #854a90; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.gruvi-article-title { color: #2f2238; font-weight: 800; line-height: 1.35; font-size: 17px; }
+.gruvi-article-excerpt { color: #75647e; font-size: 12px; line-height: 1.6; }
+.gruvi-article-footer { font-size: 11px; color: #806e89; border-top: 1px solid #f1eaf3; padding-top: 10px; }
+.gruvi-break-graphic { width: 76px; height: 76px; border-radius: 23px; background: #ffdfec; color: #db3989; font-size: 39px; display: grid; place-items: center; margin: 0 auto; }
+.gruvi-break-time { font-size: 25px; font-weight: 800; text-align: center; letter-spacing: -.04em; color: #2f2238; }
+.gruvi-break-options { display: flex; justify-content: center; gap: 6px; }
+.gruvi-break-options span { font-size: 10px; font-weight: 800; padding: 7px 9px; border-radius: 9px; background: #f5eef5; color: #765c81; }
+.gruvi-break-options span:nth-child(2) { background: #e34093; color: #fff; }
+.gruvi-carousel-dots { display: flex; gap: 8px; justify-content: center; margin-top: 4px; }
+.gruvi-carousel-dot { border: 0; border-radius: 50%; height: 8px; width: 8px; background: #d9c9df; cursor: pointer; padding: 0; }
+.gruvi-carousel-dot[aria-current="true"] { background: #75417c; width: 22px; border-radius: 8px; }
+@media (max-width: 900px) { .gruvi-slide { flex-basis: calc((100% - 16px)/2); } }
+@media (max-width: 600px) {
+  .gruvi-showcase { margin: 22px auto 32px; }
+  .gruvi-showcase-top { align-items: flex-end; }
+  .gruvi-slide { flex: 0 0 87%; min-height: 373px; padding: 20px; }
+  .gruvi-carousel-track { scroll-padding-inline: 0; }
+  .gruvi-showcase-heading { font-size: 20px; }
+  .gruvi-carousel-arrow { width: 36px; height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) { .gruvi-carousel-track { scroll-behavior: auto; } }
+
   </style>
 </head>
 
@@ -698,8 +750,8 @@ if (appStoreLink) {
 <header class="site-header">
 
   <a href="/" class="brand">
-    <img src="dose-logo-muscle.png" alt="LS Companion logo" class="brand-logo">
-    <span class="brand-name">LS Companion</span>
+    <img src="dose-logo-muscle.png" alt="Gruvi logo" class="brand-logo">
+    <span class="brand-name">Gruvi</span>
   </a>
 
 <nav class="header-nav">
@@ -715,32 +767,77 @@ if (appStoreLink) {
     <h1>Track your symptoms. See your patterns. Understand your health.</h1>
   </div>
 
-<div class="hero-screenshots">
-
-  <img
-    src="journal.png"
-    class="hero-phone"
-    alt="LS Companion journal screen for tracking symptoms and health changes"
-  />
-
-  <img
-    src="insights.png"
-    class="hero-phone"
-    alt="LS Companion insights screen showing personalized health and cycle patterns"
-  />
-
-  <img
-    src="dose.png"
-    class="hero-phone"
-    alt="LS Companion Daily Dose screen with women's health research and education"
-  />
-
-</div>
+<section class="gruvi-showcase" aria-label="Explore Gruvi features">
+  <div class="gruvi-showcase-top">
+    <div>
+      <p class="gruvi-showcase-kicker">A closer look</p>
+      <h2 class="gruvi-showcase-heading">Little tools for a clearer picture</h2>
+    </div>
+    <div class="gruvi-carousel-controls" aria-label="Carousel navigation">
+      <button type="button" class="gruvi-carousel-arrow" id="gruvi-prev" aria-label="Previous feature">&#8249;</button>
+      <button type="button" class="gruvi-carousel-arrow" id="gruvi-next" aria-label="Next feature">&#8250;</button>
+    </div>
+  </div>
+  <div class="gruvi-carousel-track" id="gruvi-feature-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Gruvi features">
+    <article class="gruvi-slide" aria-label="1 of 4: Journal">
+      <span class="gruvi-slide-eyebrow">01 / Journal</span>
+      <h3>Check in with yourself</h3>
+      <p>Record how you're feeling, your symptoms and the little things that matter.</p>
+      <div class="gruvi-preview" aria-hidden="true">
+        <span class="gruvi-preview-label">HOW ARE YOU FEELING TODAY?</span>
+        <div class="gruvi-stars">★★★★★</div>
+        <div class="gruvi-mini-row"><span>Sleep quality</span><span class="gruvi-pill">Good</span></div>
+        <div class="gruvi-mini-line" style="width:95%"></div>
+        <div class="gruvi-mini-row"><span>Today's notes</span><span>✎</span></div>
+        <div class="gruvi-mini-line" style="width:76%"></div>
+      </div>
+    </article>
+    <article class="gruvi-slide" aria-label="2 of 4: Insights">
+      <span class="gruvi-slide-eyebrow">02 / Insights</span>
+      <h3>Notice your patterns</h3>
+      <p>Look back at your check-ins to see how your wellbeing changes over time.</p>
+      <div class="gruvi-preview" aria-hidden="true">
+        <div class="gruvi-mini-row"><span class="gruvi-preview-label">YOUR WEEK AT A GLANCE</span><span>Last 7 days</span></div>
+        <div class="gruvi-chart"><span style="height:42%"></span><span style="height:67%"></span><span style="height:51%"></span><span style="height:83%"></span><span style="height:68%"></span><span style="height:93%"></span><span style="height:76%"></span></div>
+        <div class="gruvi-mini-row"><span>See how things are changing</span><span style="color:#875497">↗</span></div>
+        <div class="gruvi-mini-chips"><span>Mood</span><span>Sleep</span><span>Symptoms</span></div>
+      </div>
+    </article>
+    <article class="gruvi-slide" aria-label="3 of 4: DailyDose">
+      <span class="gruvi-slide-eyebrow">03 / DailyDose</span>
+      <h3>Learn what matters</h3>
+      <p>Explore approachable, research-based articles about women's health.</p>
+      <div class="gruvi-preview" aria-hidden="true">
+        <span class="gruvi-article-tag">✦ DAILYDOSE · RESEARCH</span>
+        <div class="gruvi-article-title">What does the evidence say about hormone therapy?</div>
+        <div class="gruvi-article-excerpt">A closer look at common questions, changing guidance and what to discuss with your clinician.</div>
+        <div class="gruvi-article-footer">A little knowledge goes a long way · 2 min read</div>
+      </div>
+    </article>
+    <article class="gruvi-slide" aria-label="4 of 4: Tech Time Out">
+      <span class="gruvi-slide-eyebrow">04 / Tech Time Out</span>
+      <h3>Make time for you</h3>
+      <p>Unplug for a while, with gentle inspiration and no pressure or streaks.</p>
+      <div class="gruvi-preview" aria-hidden="true">
+        <div class="gruvi-break-graphic">♡</div>
+        <div class="gruvi-break-time">Take a little break</div>
+        <div class="gruvi-break-options"><span>30 min</span><span>1 hour</span><span>2 hours</span></div>
+        <div class="gruvi-mini-row" style="justify-content:center;text-align:center">Unwind · Move · Create · Connect</div>
+      </div>
+    </article>
+  </div>
+  <div class="gruvi-carousel-dots" id="gruvi-feature-dots" aria-label="Feature slides">
+    <button class="gruvi-carousel-dot" type="button" aria-label="Go to Journal" aria-current="true"></button>
+    <button class="gruvi-carousel-dot" type="button" aria-label="Go to Insights" aria-current="false"></button>
+    <button class="gruvi-carousel-dot" type="button" aria-label="Go to DailyDose" aria-current="false"></button>
+    <button class="gruvi-carousel-dot" type="button" aria-label="Go to Tech Time Out" aria-current="false"></button>
+  </div>
+</section>
 
   <div class="hero-copy">
     <p class="subhead">
-      LS Companion is a private women's health tracker for symptoms, wellbeing,
-      cycles, peri/menopause, vulvar health, and lichen sclerosus — so you can
+      Gruvi is a private women's health tracker for symptoms, wellbeing,
+      cycles, peri/menopause and vulvar health — so you can
       understand changes over time and keep a clearer record of your health.
       Built to be useful, even without a subscription.
     </p>
@@ -753,7 +850,7 @@ if (appStoreLink) {
       id="app-store-link"
       href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
       target="_blank"
-      aria-label="Download LS Companion on the App Store"
+      aria-label="Download Gruvi on the App Store"
     >
       <img
         src="appstore.png"
@@ -788,7 +885,7 @@ if (appStoreLink) {
   <div class="feature-card">
     <h3>Vulvar health</h3>
     <p>
-      Track vulvar symptoms, lichen sclerosus flares, treatments, self-checks and other
+      Track vulvar symptoms, flares, treatments, self-checks and other
       changes over time.
     </p>
   </div>
@@ -803,20 +900,12 @@ if (appStoreLink) {
 
 </div>
   </section>
-<!--
-<section class="section">
-  <h2>A private lichen sclerosus tracker for symptoms, flares, treatment, and self-checks</h2>
 
-  <p class="section-intro">
-    LS Companion is designed to help people with lichen sclerosus track symptoms like itching, burning, pain, tearing, flare-ups, treatment use, and self-check observations over time. Keeping a simple record can make it easier to notice patterns, remember changes, and communicate more clearly with a healthcare provider.
-  </p>
-</section>
--->
     <section class="section">
   <h2>Private by design</h2>
 
   <p class="section-intro">
-    LS Companion is built for personal health tracking. You can use the
+    Gruvi is built for personal health tracking. You can use the
     app locally without creating an account, giving you a simple way to
     keep track of sensitive health information privately.
   </p>
@@ -825,7 +914,7 @@ if (appStoreLink) {
   <h2>Track perimenopause and hormonal changes alongside everything else</h2>
 
   <p class="section-intro">
-    Perimenopause can affect much more than your period. Use LS Companion
+    Perimenopause can affect much more than your period. Use Gruvi
     to keep track of cycle changes, sleep, mood, energy, hot flashes,
     vulvar and vaginal symptoms, libido, wellbeing and other changes —
     while seeing them alongside the rest of your health.
@@ -837,13 +926,13 @@ if (appStoreLink) {
   <p class="section-intro">
     Symptoms can overlap. Hormones can change. Sleep, stress, cycles,
     treatments and vulvar health may all be part of the picture.
-    LS Companion gives you one place to keep track of what you're experiencing
+    Gruvi gives you one place to keep track of what you're experiencing
     and see how things change over time.
   </p>
 </section>
   <section class="section disclaimer">
   <p>
-    LS Companion is for personal health tracking and educational purposes only.
+    Gruvi is for personal health tracking and educational purposes only.
     It does not provide medical advice, diagnosis or treatment. Always speak
     with a qualified healthcare provider about medical concerns, symptoms or
     treatment decisions.
@@ -859,5 +948,40 @@ if (appStoreLink) {
     <a href="/terms.html">Terms of Use</a>
     <a href="https://www.instagram.com/lscompanionapp/" target="_blank">Instagram</a>
   </footer>
+<script>
+/* Feature carousel: native finger swipe + accessible previous/next/dots */
+(function () {
+  const track = document.getElementById('gruvi-feature-track');
+  const slides = Array.from(track.querySelectorAll('.gruvi-slide'));
+  const dots = Array.from(document.querySelectorAll('#gruvi-feature-dots .gruvi-carousel-dot'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let index = 0;
+  function goTo(next) {
+    index = (next + slides.length) % slides.length;
+    track.scrollTo({ left: slides[index].offsetLeft - slides[0].offsetLeft, behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+    dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+  }
+  document.getElementById('gruvi-prev').addEventListener('click', () => goTo(index - 1));
+  document.getElementById('gruvi-next').addEventListener('click', () => goTo(index + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  let raf = 0;
+  track.addEventListener('scroll', () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const offset = track.scrollLeft;
+      let closest = 0;
+      for (let i = 1; i < slides.length; i++) {
+        if (Math.abs((slides[i].offsetLeft - slides[0].offsetLeft) - offset) < Math.abs((slides[closest].offsetLeft - slides[0].offsetLeft) - offset)) closest = i;
+      }
+      index = closest;
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+    });
+  }, { passive: true });
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+  });
+})();
+</script>
 </body>
 </html>
