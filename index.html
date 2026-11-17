@@ -73,6 +73,28 @@ if (appStoreLink) {
   });
 }
     });
+
+    // Track the two additional App Store CTAs without changing badge tracking.
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[data-store-placement]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          gtag_report_conversion();
+          window.amplitude.track('App Store CTA Clicked', {
+            ...trafficProps,
+            platform: 'ios',
+            placement: link.dataset.storePlacement
+          });
+        });
+      });
+      document.querySelectorAll('.ref-privacy-actions a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          window.amplitude.track('Privacy Policy Clicked', {
+            ...trafficProps,
+            placement: 'privacy_section'
+          });
+        });
+      });
+    });
   </script>
 
   <meta charset="UTF-8" />
@@ -692,44 +714,45 @@ if (appStoreLink) {
 }
     }
   
-/* Three-section Clue-inspired layout; existing tracking and footer retained. */
-body { background:#fff; }
+/* Gruvi three-section layout; existing tracking and footer retained. */
+body { background:#ffffff; }
 .site-header { max-width:1280px; }
 .page { max-width:none; padding:0; width:100%; }
-.ref-hero { display:grid; grid-template-columns: 1fr 1fr; min-height:600px; background:#fcf7f7; overflow:hidden; }
+.ref-hero { display:grid; grid-template-columns: 1fr 1fr; min-height:600px; background:#f4eef5; overflow:hidden; }
 .ref-hero-copy { padding:clamp(40px,6vw,100px) clamp(28px,5vw,100px); display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
-.ref-hero-copy h1 {font-size:clamp(36px,4vw,72px);font-weight:500;line-height:1.09;letter-spacing:-.045em;color:#a6001c;margin:0 0 35px;max-width:720px;}
-.ref-hero-copy h1 em {font-family:Georgia,serif;font-weight:400;font-style:italic;color:#f14b4b;letter-spacing:-.02em;}
-.ref-hero-copy p {font-size:clamp(17px,1.5vw,23px);line-height:1.55;margin:0 0 36px;color:#333;}
-.ref-hero-cta {display:inline-flex;background:#e93137;color:white;text-decoration:none;border-radius:40px;padding:17px 35px;font-weight:800;font-size:19px;}
-.ref-hero-proof {color:#aaa;font-size:19px;margin-top:48px;display:flex;gap:25px;flex-wrap:wrap;}
+.ref-hero-copy h1 {font-size:clamp(36px,4vw,72px);font-weight:500;line-height:1.09;letter-spacing:-.045em;color:#2f2238;margin:0 0 35px;max-width:720px;}
+.ref-hero-copy h1 em {font-family:Georgia,serif;font-weight:400;font-style:italic;color:#714078;letter-spacing:-.02em;}
+.ref-hero-copy p {font-size:clamp(17px,1.5vw,23px);line-height:1.55;margin:0 0 36px;color:#2f2238;}
+.ref-hero-cta {display:inline-flex;background:#714078;color:white;text-decoration:none;border-radius:40px;padding:17px 35px;font-weight:800;font-size:19px;}
+.ref-hero-cta:hover {background:#57315f;}
+.ref-hero-proof {color:#6f5b7d;font-size:19px;margin-top:48px;display:flex;gap:25px;flex-wrap:wrap;}
 .ref-hero-proof strong {font-family:Georgia,serif;font-size:34px;font-weight:400;}
-.ref-hero-visual {position:relative;min-height:600px;background:#dcdde0;overflow:hidden;}
+.ref-hero-visual {position:relative;min-height:600px;background:#f4eef5;overflow:hidden;}
 .ref-hero-woman {width:100%;height:100%;position:absolute;inset:0;object-fit:cover;}
-.ref-placeholder {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;background:#e3dfe5;color:#665569;padding:30px;}
+.ref-placeholder {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;background:#eee5f0;color:#6f5b7d;padding:30px;}
 .ref-hero-phone {position:absolute;left:-7%;top:14%;height:70%;max-width:44%;object-fit:contain;transform:rotate(8deg);filter:drop-shadow(0 15px 22px #0002);}
 .ref-store-badges {position:absolute;bottom:8%;left:36%;right:3%;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
 .ref-store-badges .app-store-badge {height:55px;}
 .ref-benefits {padding:clamp(70px,8vw,130px) 22px;max-width:1040px;margin:auto;text-align:center;}
-.ref-benefits h2 {font-size:clamp(34px,3.6vw,56px);letter-spacing:-.045em;line-height:1.1;margin:0 0 18px;color:#343434;}
-.ref-benefits > p {font-size:20px;line-height:1.5;margin:0 0 54px;color:#444;}
+.ref-benefits h2 {font-size:clamp(34px,3.6vw,56px);letter-spacing:-.045em;line-height:1.1;margin:0 0 18px;color:#2f2238;}
+.ref-benefits > p {font-size:20px;line-height:1.5;margin:0 0 54px;color:#6f5b7d;}
 .ref-benefit-grid {display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.ref-benefit {display:flex;align-items:center;gap:20px;text-align:left;padding:22px 26px;border-radius:24px;background:#fcf7f7;color:#363636;font-size:19px;min-height:110px;}
+.ref-benefit {display:flex;align-items:center;gap:20px;text-align:left;padding:22px 26px;border-radius:24px;background:#f4eef5;color:#2f2238;font-size:19px;min-height:110px;}
 .ref-benefit img {width:52px;height:52px;object-fit:contain;flex-shrink:0;}
-.ref-benefit .missing-icon {width:52px;height:52px;border:2px dashed #d7c8d2;border-radius:50%;display:none;align-items:center;justify-content:center;color:#9d7d93;font-weight:bold;flex-shrink:0;}
+.ref-benefit .missing-icon {width:52px;height:52px;border:2px dashed #d5bfd7;border-radius:50%;display:none;align-items:center;justify-content:center;color:#714078;font-weight:bold;flex-shrink:0;}
 .ref-benefits-cta {margin:48px auto 0;}
-.ref-privacy {background:#aa001d;color:white;padding:clamp(65px,7vw,120px) clamp(25px,6vw,95px);display:grid;grid-template-columns:1.5fr 0.7fr;align-items:center;gap:60px;}
+.ref-privacy {background:#2f2238;color:white;padding:clamp(65px,7vw,120px) clamp(25px,6vw,95px);display:grid;grid-template-columns:1.5fr 0.7fr;align-items:center;gap:60px;}
 .ref-privacy h2 {font-size:clamp(32px,3vw,55px);font-weight:650;line-height:1.1;letter-spacing:-.025em;color:white;margin:0 0 28px;}
 .ref-privacy h2 em {font-family:Georgia,serif;font-weight:400;}
 .ref-privacy p {font-size:clamp(16px,1.5vw,22px);line-height:1.6;margin:0 0 35px;max-width:850px;}
 .ref-privacy-actions {display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
 .ref-privacy-actions a {color:white;font-weight:700;font-size:17px;}
-.ref-privacy-actions .ref-pill {color:#a6001c;background:#ffebe8;text-decoration:none;border-radius:40px;padding:16px 30px;}
+.ref-privacy-actions .ref-pill {color:#2f2238;background:#f4eef5;text-decoration:none;border-radius:40px;padding:16px 30px;}
 .ref-privacy-mark {text-align:center;}
 .ref-privacy-mark img {width:min(260px,65%);height:auto;object-fit:contain;}
 .ref-privacy-mark p {font-weight:650;font-size:18px;margin:14px auto 0;max-width:340px;}
-.ref-asset-hint {color:#816c7b;font-size:13px;}
-.ref-privacy-mark .ref-asset-hint {color:#ffdddd;}
+.ref-asset-hint {color:#6f5b7d;font-size:13px;}
+.ref-privacy-mark .ref-asset-hint {color:#e1cade;}
 @media(max-width:850px){ .ref-hero {grid-template-columns:1fr;} .ref-hero-copy {padding:50px 24px;} .ref-hero-visual {min-height:420px;} .ref-hero-phone {left:5%;top:9%;height:78%;} .ref-store-badges {left:35%;bottom:5%;} .ref-benefit-grid {grid-template-columns:1fr;} .ref-privacy {grid-template-columns:1fr;gap:25px;} .ref-privacy-mark img {width:170px;} }
 @media(max-width:480px){.ref-hero-visual {min-height:340px;} .ref-hero-phone{max-width:48%;} .ref-store-badges .app-store-badge{height:40px;} .ref-benefit{font-size:16px;padding:18px 16px;min-height:90px;} .ref-benefit img{width:42px;height:42px;} .ref-hero-proof{margin-top:30px;font-size:15px;} }
 </style>
@@ -764,8 +787,7 @@ body { background:#fff; }
   Build a healthier, happier you.
 </p>
 
-    <a class="ref-hero-cta" href="https://apps.apple.com/ca/app/ls-companion/id6760978566">Get started</a>
-    <!-- DEMO COPY ONLY: replace unverified ratings and download claims before publishing -->
+    <a class="ref-hero-cta" data-store-placement="hero" href="https://apps.apple.com/ca/app/ls-companion/id6760978566">Get started</a>
   </div>
   <div class="ref-hero-visual">
     <div class="ref-placeholder" aria-hidden="true">Add <strong>&nbsp;woman&nbsp;</strong> to your repository</div>
@@ -777,7 +799,7 @@ body { background:#fff; }
     </div>
   </div>
 </section>
-<!-- SECTION 2: SIX BENEFITS. Add 1.png through 6.png alongside index.html. -->
+<!-- SECTION 2: SIX BENEFITS. Add the six named PNG assets alongside index.html. -->
 <section class="ref-benefits" aria-labelledby="benefits-title">
 <h2 id="benefits-title">Your wellbeing evolves with you</h2>
 <p>
@@ -788,55 +810,17 @@ body { background:#fff; }
   menopause, and beyond.
 </p>
   <div class="ref-benefit-grid">
-    <div class="ref-benefit"><img src="1.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">calendar</span><span>Track cycle symptoms in seconds</span></div>
-    <div class="ref-benefit"><img src="2.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">2</span><span>See how your cycle affects your mood</span></div>
-    <div class="ref-benefit"><img src="3.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">3</span><span>Know when your period, PMS and ovulation days are coming</span></div>
-    <div class="ref-benefit"><img src="4.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">4</span><span>Anticipate symptoms before they show up</span></div>
-    <div class="ref-benefit"><img src="5.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">5</span><span>Know when you’re fertile</span></div>
-    <div class="ref-benefit"><img src="6.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">6</span><span>Turn gut feelings into evidence</span></div>
+    <div class="ref-benefit"><img src="community.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">calendar</span><span>Track cycle symptoms in seconds</span></div>
+    <div class="ref-benefit"><img src="wellbeing.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">wellbeing</span><span>See how your cycle affects your mood</span></div>
+    <div class="ref-benefit"><img src="doctor.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">doctor</span><span>Know when your period, PMS and ovulation days are coming</span></div>
+    <div class="ref-benefit"><img src="heart.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">heart</span><span>Anticipate symptoms before they show up</span></div>
+    <div class="ref-benefit"><img src="timeout-reminder.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">timeout reminder</span><span>Know when you’re fertile</span></div>
+    <div class="ref-benefit"><img src="calenadr.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="missing-icon">calendar</span><span>Turn gut feelings into evidence</span></div>
   </div>
-  <a class="ref-hero-cta ref-benefits-cta" href="https://apps.apple.com/ca/app/ls-companion/id6760978566">Start my journey with Gruvi</a>
+  <a class="ref-hero-cta ref-benefits-cta" data-store-placement="benefits" href="https://apps.apple.com/ca/app/ls-companion/id6760978566">Start my journey with Gruvi</a>
 </section>
 <!-- SECTION 3: PRIVACY. Replace source wording/claims before publishing. -->
 <section class="ref-privacy" aria-labelledby="privacy-title">
-  <div>
-    <h2 id="privacy-title">
-      Your health. Your data. <em>Your choice.</em>
-    </h2>
-
-    <p>
-      Your health information is personal, and we believe
-      it should stay that way. Gruvi is designed with
-      privacy in mind, so you can track your health
-      without creating an account. Sign in only if
-      you'd like to back up and sync your data
-      across devices.
-    </p>
-
-    <div class="ref-privacy-actions">
-      <a class="ref-pill" href="/privacy.html">
-        Explore our privacy policy
-      </a>
-
-      <a href="/privacy.html">
-        How we handle your data &gt;
-      </a>
-    </div>
-  </div>
-
-  <div class="ref-privacy-mark">
-    <img
-      src="lock.png"
-      alt="Privacy lock symbol"
-      onerror="this.style.display='none'"
-    >
-
-    <p>
-      Private by design.<br>
-      No account required.
-    </p>
-  </div>
-</section><section class="ref-privacy" aria-labelledby="privacy-title">
   <div>
     <h2 id="privacy-title">
       Your health. Your data. <em>Your choice.</em>
