@@ -82,19 +82,42 @@
       padding: 20px;
       margin-top: 20px;
     }
+    .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #2f2238;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.brand:hover {
+  opacity: 0.85;
+}
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <a href="/" class="back-home">← Gruvi</a>
-  </div>
+<!-- Gruvi Header -->
+<div class="header">
+  <a href="/" class="brand">
+    <img src="/gruvi.png" alt="Gruvi logo">
+    <span>Gruvi</span>
+  </a>
+</div>
 
   <div class="container">
 
     <h1>Terms of Use</h1>
-    <div class="updated">Last updated: April 2026 </div>
+    <div class="updated">Last updated: November 2026 </div>
 
     <div class="card">
       <p>
