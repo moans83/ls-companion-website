@@ -158,6 +158,164 @@ if (appStoreLink) {
       display: flex;
       flex-direction: column;
     }
+    /* GRUVI PLANS */
+
+.gruvi-plans {
+  background: #ffffff;
+  padding: 90px 24px;
+  text-align: center;
+  font-family: 'Manrope', sans-serif;
+}
+
+.gruvi-plans h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: #2f2238;
+  margin-bottom: 12px;
+}
+
+.gruvi-plans-subtitle {
+  color: #6f5b7d;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.gruvi-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.gruvi-plan-card {
+  background: #faf7fb;
+  border-radius: 28px;
+  overflow: hidden;
+  text-align: left;
+  border: 1px solid #e4dce8;
+  display: flex;
+  flex-direction: column;
+}
+
+.gruvi-plan-header {
+  padding: 25px;
+  text-align: center;
+}
+
+.gruvi-plan-header.free {
+  background: #b692c3;
+}
+
+.gruvi-plan-header.pro {
+  background: #714078;
+}
+
+.gruvi-plan-header h3 {
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.gruvi-plan-content {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gruvi-plan-content h4 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #2f2238;
+  margin: 0 0 12px;
+}
+
+.gruvi-plan-description {
+  color: #6f5b7d;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.gruvi-plan-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.gruvi-plan-content li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2f2238;
+}
+
+.gruvi-plan-content li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #714078;
+  font-weight: 800;
+}
+
+.gruvi-plan-price {
+  font-size: 23px;
+  font-weight: 800;
+  color: #2f2238;
+  margin-top: auto;
+}
+
+.gruvi-plan-note {
+  font-size: 13px;
+  color: #6f5b7d;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.gruvi-plan-button {
+  display: block;
+  text-align: center;
+  background: #b692c3;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  margin-top: auto;
+}
+
+.gruvi-plan-button:hover {
+  opacity: 0.9;
+}
+
+.gruvi-plan-button.pro-button {
+  background: #714078;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .gruvi-plans {
+    padding: 60px 20px;
+  }
+
+  .gruvi-plans-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .gruvi-plan-content {
+    padding: 28px 24px;
+  }
+
+}
 
     .page {
       width: 100%;
@@ -833,6 +991,99 @@ body { background:#ffffff; }
 
   </div>
   <a class="ref-hero-cta ref-benefits-cta" data-store-placement="benefits" href="https://apps.apple.com/ca/app/ls-companion/id6760978566">Start my journey with Gruvi</a>
+</section>
+
+  <!-- GRUVI PLANS -->
+<section class="gruvi-plans" id="plans">
+
+  <h2>Choose what works for you</h2>
+
+  <p class="gruvi-plans-subtitle">
+    Start free. Explore more whenever you're ready.
+  </p>
+
+  <div class="gruvi-plans-grid">
+
+    <!-- FREE -->
+    <div class="gruvi-plan-card">
+
+      <div class="gruvi-plan-header free">
+        <h3>Gruvi</h3>
+      </div>
+
+      <div class="gruvi-plan-content">
+
+        <h4>Free</h4>
+        <p class="gruvi-plan-description">
+          Everything you need to start understanding your body
+          and building healthier habits.
+        </p>
+
+        <ul>
+          <li>Track symptoms, cycles, mood and wellbeing</li>
+          <li>Discover trends in your health</li>
+          <li>Take screen breaks with Tech Time Out</li>
+          <li>Set treatment and wellbeing reminders</li>
+          <li>Explore community questions</li>
+          <li>Find healthcare providers</li>
+          <li>No account required</li>
+        </ul>
+
+        <a
+          href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
+          class="gruvi-plan-button"
+          data-store-placement="free-plan">
+          Download free
+        </a>
+
+      </div>
+    </div>
+
+    <!-- PRO -->
+    <div class="gruvi-plan-card">
+
+      <div class="gruvi-plan-header pro">
+        <h3>Gruvi Pro</h3>
+      </div>
+
+      <div class="gruvi-plan-content">
+
+        <h4>Go deeper</h4>
+
+        <p class="gruvi-plan-description">
+          Turn your health history into meaningful insights
+          and get more out of your Gruvi experience.
+        </p>
+
+        <ul>
+          <li>Everything in Gruvi Free</li>
+          <li>Advanced personalized health insights</li>
+          <li>AI-powered journal summaries</li>
+          <li>Deeper analysis of symptoms and patterns</li>
+          <li>Doctor visit preparation reports</li>
+          <li>Premium educational content</li>
+        </ul>
+
+        <div class="gruvi-plan-price">
+          $19.99 USD / year
+        </div>
+
+        <p class="gruvi-plan-note">
+          Optional subscription. Available in the app.
+        </p>
+
+        <a
+          href="https://apps.apple.com/ca/app/ls-companion/id6760978566"
+          class="gruvi-plan-button pro-button"
+          data-store-placement="pro-plan">
+          Explore Gruvi Pro
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
 </section>
 <!-- SECTION 3: PRIVACY. Replace source wording/claims before publishing. -->
 <section class="ref-privacy" aria-labelledby="privacy-title">
